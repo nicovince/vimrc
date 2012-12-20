@@ -248,8 +248,8 @@ if has("autocmd")
     \ endif
 
   " filetype
-  autocmd BufNEwFile,BufRead *.vh setlocal syntax=verilog
-  autocmd BufNEwFile,BufRead *.sv setlocal syntax=verilog
+  autocmd BufNEwFile,BufRead *.vh setlocal filetype=verilog
+  autocmd BufNEwFile,BufRead *.sv setlocal filetype=verilog
   autocmd BufNEwFile,BufRead *.lte setlocal syntax=xml
   autocmd BufNEwFile,BufRead hg-editor-*.txt setlocal syntax=hgcommit
   autocmd BufNEwFile,BufRead hg-editor.msg setlocal syntax=hgcommit
