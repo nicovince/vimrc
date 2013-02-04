@@ -44,7 +44,7 @@ command! -bang -nargs=0 SetCStyleComment call SetCStyleComment()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function WeeklyItem()
   let l:date = strftime("%a %d %b %Y - %H:%M")
-  let l:week = strftime("%W")
+  let l:week = strftime("%V")
   if strftime("%u")>4
     let l:week = l:week + 1
   endif
