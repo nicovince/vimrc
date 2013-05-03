@@ -12,6 +12,23 @@ function! SvnBlame(...) range
   execute cmd
 endfunction
 
+" performs a blame on the selection
+vmap gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GIT stuff
+function! GitBlame(...) range
+  let l:revision = a:0 >= 1 ? "-r " . a:1 . " " : ""
+  " Get file name
+  let l:fileName = expand('%:p')
+  let cmd="!git blame -L" . a:firstline . "," . a:lastline . " " . l:revision . l:fileName
+  echo cmd
+  execute cmd
+endfunction
+vmap ,g :call GitBlame()<CR>
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use Tab for completion when next to a word otherwise insert tabulation
 function! InsertTabWrapper(direction)
@@ -94,3 +111,6 @@ endfunction
 command! -bang -nargs=0 CleanLogFile call CleanLogFile()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Converts file format to/from unix
+command Unixformat :set ff=unix
+command Dosformat :set ff=dos

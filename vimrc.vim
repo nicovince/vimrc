@@ -181,11 +181,6 @@ ounmap <F2>
 ounmap <F3>
 ounmap <F4>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SVN stuff :
-" performs a blame on the selection
-vmap gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search for selected text, forwards or backwards.
