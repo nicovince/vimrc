@@ -8,6 +8,6 @@ let b:did_ftplugin = 1
 if exists("loaded_matchit")
   let b:match_ignorecase=0
   let b:match_words=
-    \ 'ifn\?def\>\|\<ifeq\>:else\>:endif\>,'
+    \ 'ifn\?def\>\|\<ifn\?eq\>:else\>:endif\>,'
   set noet
 endif
