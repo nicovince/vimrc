@@ -32,6 +32,7 @@ endif
 let b:did_ftplugin = 1
 
 setlocal commentstring=<!--%s-->
+setlocal shiftwidth=2
 
 " XML:  thanks to Johannes Zellner and Akbar Ibrahim
 " - case sensitive

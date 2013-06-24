@@ -246,7 +246,7 @@ if has("autocmd")
   autocmd BufNEwFile,BufRead *.vh setlocal filetype=verilog
   autocmd BufNEwFile,BufRead *.cw setlocal filetype=c
   autocmd BufNEwFile,BufRead *.sv setlocal filetype=verilog
-  autocmd BufNEwFile,BufRead *.lte setlocal syntax=xml
+  autocmd BufNEwFile,BufRead *.lte setlocal filetype=xml
   autocmd BufNEwFile,BufRead hg-editor-*.txt setlocal syntax=hgcommit
   autocmd BufNEwFile,BufRead hg-editor.msg setlocal syntax=hgcommit
 
