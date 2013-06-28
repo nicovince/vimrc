@@ -219,6 +219,7 @@ map <Leader>wf <ESC>:highlight WhiteSpaceEol NONE<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Abbreviation in command mode to replace '%%' with the path of the current
 " file
+" http://vim.wikia.com/wiki/Easy_edit_of_files_in_the_same_directory
 cabbr <expr> %% expand('%:h')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
