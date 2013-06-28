@@ -217,6 +217,11 @@ map <Leader>wf <ESC>:highlight WhiteSpaceEol NONE<CR>
 "autocmd BufAdd,BufRead * match WhiteSpaceEol /\s\+$/
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Abbreviation in command mode to replace '%%' with the path of the current
+" file
+cabbr <expr> %% expand('%:h')
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
