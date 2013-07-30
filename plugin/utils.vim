@@ -1,3 +1,4 @@
+" vim: set sw=2:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Reverse line order on selection
 command! -bar -range=% Reverse <line1>,<line2>g/^/m<line1>-1|nohl
@@ -65,7 +66,7 @@ function WeeklyItem()
   if strftime("%u")>4
     let l:week = l:week + 1
   endif
-  exec "normal i".l:week . ") " . l:date . " :                           |     |"
+  exec "normal Go".l:week . ") " . l:date . " :                           |     |"
 endfunction
 " alias
 command! -bang -nargs=0 WeeklyItem call WeeklyItem()
@@ -104,11 +105,21 @@ endfunction
 command! -bang -nargs=0 SetTagsFile call SetTagsFile()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" remove shell colors from log file
 function CleanLogFile()
   exe ":%s#[\\d\\+m##g"
 endfunction
 " alias
 command! -bang -nargs=0 CleanLogFile call CleanLogFile()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set file as read-only and make file impossible to modify
+function DontTouch()
+  set nomodifiable
+  set readonly
+endfunction
+" alias
+command -bang -nargs=0 DontTouch call DontTouch()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Converts file format to/from unix
