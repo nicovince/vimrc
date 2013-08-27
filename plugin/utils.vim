@@ -125,3 +125,19 @@ command -bang -nargs=0 DontTouch call DontTouch()
 " Converts file format to/from unix
 command Unixformat :set ff=unix
 command Dosformat :set ff=dos
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! KprimeLprimeNs(idx, kp, lp, ns)
+  let l:kp = a:kp
+  if strlen(l:kp) == 1
+    let l:kp = " " . l:kp
+  endif
+
+  let l:idx = a:idx
+  if strlen(l:idx) == 1
+    let l:idx = " " . l:idx
+  endif
+
+  let l:entry = "KprimeLprimeNsMod2_t(" . l:kp . ", " . a:lp . ", " . a:ns . "), // " . l:idx
+  exec "normal o".l:entry
+endfunction
