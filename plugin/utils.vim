@@ -65,6 +65,8 @@ function WeeklyItem()
   let l:week = strftime("%V")
   if strftime("%u")>4
     let l:week = l:week + 1
+    exec "normal Go"
+    exec "normal o-----------------------------------------------------------------------------------------------------------------------"
   endif
   exec "normal Go".l:week . ") " . l:date . " :                           |     |"
 endfunction
