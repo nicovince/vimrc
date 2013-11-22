@@ -52,6 +52,7 @@ if exists("loaded_matchit")
   let b:match_ignorecase=0
   let b:match_words=
     \ '\<begin\>:\<end\>,' .
+    \ '\<generate\>:\<endgenerate\>,' .
     \ '\<case\>\|\<casex\>\|\<casez\>:\<endcase\>,' .
     \ '\<module\>:\<endmodule\>,' .
     \ '\<if\>:\<else\>,' .
