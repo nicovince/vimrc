@@ -21,11 +21,21 @@ vmap gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR
 " GIT stuff
 function! GitBlame(...) range
   let l:revision = a:0 >= 1 ? "-r " . a:1 . " " : ""
+  " Save current directory
+  let l:cwd = getcwd()
+  " Get dirname of current file and cd to it to make sure we are in the valid git repository
+  let l:dirName = expand('%:p:h')
+  exe "lcd " . l:dirName
+
   " Get file name
   let l:fileName = expand('%:p')
+  " run git blame on file name
   let cmd="!git blame -L" . a:firstline . "," . a:lastline . " " . l:revision . l:fileName
   echo cmd
   execute cmd
+
+  " and go back to saved directory
+  exe "lcd " . l:cwd
 endfunction
 vmap ,g :call GitBlame()<CR>
 
