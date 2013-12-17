@@ -139,6 +139,29 @@ command Unixformat :set ff=unix
 command Dosformat :set ff=dos
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Search pattern in the current verilog module
+function SearchInCurrentModule(search_pattern)
+  " Replace search pattern with current word under cursor if search pattern
+  " is empty
+  let l:search_pattern = a:search_pattern
+  if strlen(l:search_pattern) == 0
+    let l:search_pattern = "\\<" . expand("<cword>") . "\\>"
+  endif
+
+  " save current cursor position
+  let l:save_cursor = getpos(".")
+  let l:endmodule_line = searchpair('^\s*module','','^\s*endmodule','')
+  let l:module_line =    searchpair('^\s*module','','^\s*endmodule','bW')
+  let l:search_cmd = '\%>' . l:module_line . 'l\%<' . l:endmodule_line . 'l' . l:search_pattern
+  " set the search in the search register
+  let @/ = l:search_cmd
+  " restore cursor position
+  call setpos('.', save_cursor)
+endfunction
+" map ,x to search the word under cursor in the current module
+nmap ,x :call SearchInCurrentModule("") <CR>n
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! KprimeLprimeNs(idx, kp, lp, ns)
   let l:kp = a:kp
   if strlen(l:kp) == 1
