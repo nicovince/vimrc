@@ -158,8 +158,6 @@ function SearchInCurrentModule(search_pattern)
   " restore cursor position
   call setpos('.', save_cursor)
 endfunction
-" map ,x to search the word under cursor in the current module
-nmap ,x :call SearchInCurrentModule("") <CR>n
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! KprimeLprimeNs(idx, kp, lp, ns)

@@ -119,4 +119,8 @@ function! AlignVerilogInstance() range
   execute cmd
 endfunction
 
+" ---------------------------------------------------------------------
+" map ,x to search the word under cursor in the current module
+nmap <buffer> ,x :call SearchInCurrentModule("") <CR>n
+
 " vim: set et sw=2:
