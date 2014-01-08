@@ -71,14 +71,22 @@ command! -bang -nargs=0 SetCStyleComment call SetCStyleComment()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function WeeklyItem()
-  let l:date = strftime("%a %d %b %Y - %H:%M")
+  " Since my home was moved to aloxe, the hour returned by strftime is off by
+  " one
+  let l:hour = strftime("%H") + 1
+  if l:hour <= 9
+    let l:hour = "0" . l:hour
+  endif
+  let l:time = l:hour . ":" . strftime("%M")
+  let l:date = strftime("%a %d %b %Y")
   let l:week = strftime("%V")
+  " new week starts on friday
   if strftime("%u")>4
     let l:week = l:week + 1
     exec "normal Go"
     exec "normal o-----------------------------------------------------------------------------------------------------------------------"
   endif
-  exec "normal Go".l:week . ") " . l:date . " :                           |     |"
+  exec "normal Go".l:week . ") " . l:date . " - " . l:time . " :                           |     |"
 endfunction
 " alias
 command! -bang -nargs=0 WeeklyItem call WeeklyItem()
