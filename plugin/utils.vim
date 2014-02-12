@@ -73,10 +73,11 @@ command! -bang -nargs=0 SetCStyleComment call SetCStyleComment()
 function WeeklyItem()
   " Since my home was moved to aloxe, the hour returned by strftime is off by
   " one
-  let l:hour = strftime("%H") + 1
-  if l:hour <= 9
-    let l:hour = "0" . l:hour
-  endif
+  " Update : The issue has been fixed after my NX session crashed
+  let l:hour = strftime("%H")
+  "if l:hour <= 9
+  "  let l:hour = "0" . l:hour
+  "endif
   let l:time = l:hour . ":" . strftime("%M")
   let l:date = strftime("%a %d %b %Y")
   let l:week = strftime("%V")
