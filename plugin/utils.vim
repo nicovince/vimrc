@@ -84,7 +84,9 @@ function WeeklyItem()
   " new week starts on friday
   if strftime("%u")>4
     let l:week = l:week + 1
-    let l:week = "0" . l:week
+    if l:week<10
+      let l:week = "0" . l:week
+    endif
     exec "normal Go"
     exec "normal o-----------------------------------------------------------------------------------------------------------------------"
   endif
