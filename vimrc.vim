@@ -113,7 +113,7 @@ set showtabline=1 " 2=always
 
 " Set buffer variable depending on where file is located.
 " This is used to set different config for various teams
-autocmd! BufReadPost,BufNewFile * call SetupEnv()
+autocmd! BufReadPre,BufNewFile * call SetupEnv()
 
 
 " allow backspacing over everything in insert mode
