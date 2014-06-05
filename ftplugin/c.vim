@@ -2,8 +2,15 @@
 if exists("b:did_ftplugin")
         finish
 endif
+
 setlocal et
 setlocal shiftwidth=2
+" Sequans PI python config :
+if (b:envPi = 1)
+        setlocal shiftwidth=8
+        setlocal noet
+endif
+
 function! CaUComment()
         s#^//#////#e
         s#^\([^/]\)#//\1#e

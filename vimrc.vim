@@ -111,6 +111,10 @@ set showtabline=1 " 2=always
 "autocmd GUIEnter * hi! TabLineFill term=underline cterm=underline gui=underline
 "autocmd GUIEnter * hi! TabLineSel term=bold,reverse,underline ctermfg=11 ctermbg=12 guifg=#ffff00 guibg=#0000ff gui=underline
 
+" Set buffer variable depending on where file is located.
+" This is used to set different config for various teams
+autocmd! BufReadPost,BufNewFile * call SetupEnv()
+
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
