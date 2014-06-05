@@ -6,7 +6,7 @@ setlocal shiftwidth=4
 setlocal et
 
 " Sequans PI python config :
-if (b:envPi = 1)
+if (b:envPi == 1)
         setlocal shiftwidth=8
         setlocal noet
 endif
