@@ -188,10 +188,15 @@ function! KprimeLprimeNs(idx, kp, lp, ns)
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set b:envPi if path of current filename match work/PI
-function! SetupEnv()
+" return 1 if path of current filename match work/PI
+" This is used to have some specific vim options when working with Sequans/PI
+" files
+function! IsSequansPI()
   let l:path = expand('%:p')
   if l:path =~ 'work/PI'
-    let b:envPi = 1
+    return 1
+  else
+    return 0
   endif
 endfunction
+

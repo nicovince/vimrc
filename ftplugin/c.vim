@@ -5,8 +5,8 @@ endif
 
 setlocal et
 setlocal shiftwidth=2
-" Sequans PI python config :
-if (b:envPi == 1)
+" Sequans PI config :
+if (IsSequansPI())
         setlocal shiftwidth=8
         setlocal noet
 endif
