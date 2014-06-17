@@ -191,7 +191,6 @@ endfunction
 " Set b:envPi if path of current filename match work/PI
 function! SetupEnv()
   let l:path = expand('%:p')
-  let b:envPi = 0
   if l:path =~ 'work/PI'
     let b:envPi = 1
   endif
