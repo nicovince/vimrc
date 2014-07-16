@@ -17,10 +17,10 @@ endif
 " runtimepath is used to get vim configuration folder
 " this is useful when vim is called from another user with
 " vim -u /path/to/vimrc
-"let s:local_path = expand('<sfile>:p:h')
-"let &runtimepath=s:local_path . ",$VIMRUNTIME"
-let &runtimepath=expand('<sfile>:p:h') . "," . &runtimepath
-"set runtimepath=/home/nvincent/.vim,$VIMRUNTIME
+let $vimfolder = expand('<sfile>:p:h')
+"let &runtimepath=expand('<sfile>:p:h') . "," . &runtimepath
+" the ^= assign the variable if the rhs is not already in the lhs
+set runtimepath^=$vimfolder
 
 
 if $TERM == 'linux'
