@@ -1,4 +1,8 @@
 " vim: set sw=2:
+if exists ("loaded_utils")
+  finish
+endif
+let loaded_utils = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Reverse line order on selection
 command! -bar -range=% Reverse <line1>,<line2>g/^/m<line1>-1|nohl
