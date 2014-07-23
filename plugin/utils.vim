@@ -204,3 +204,12 @@ function! IsSequansPI()
   endif
 endfunction
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Insert item for after action reviw
+function AarItem()
+  let l:date = strftime("%a %d %b %Y")
+    exec "normal o-----------------------------------------------------------------------------------------------------------------------"
+  exec "normal Go".l:date . " : "
+endfunction
+command! -bang -nargs=0 AarItem call AarItem()
+
