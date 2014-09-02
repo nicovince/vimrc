@@ -213,3 +213,7 @@ function AarItem()
 endfunction
 command! -bang -nargs=0 AarItem call AarItem()
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indent json selection using python
+command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
