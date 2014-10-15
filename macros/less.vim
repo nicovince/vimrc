@@ -40,6 +40,7 @@ syntax on
 set so=999
 set hlsearch
 set incsearch
+set noswapfile
 nohlsearch
 " Don't remember file names and positions
 set viminfo=
