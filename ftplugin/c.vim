@@ -7,7 +7,8 @@ setlocal et
 setlocal shiftwidth=2
 " Sequans PI config :
 if (IsSequansPI())
-        setlocal shiftwidth=8
+        setlocal shiftwidth=4
+        setlocal tabstop=4
         setlocal noet
 endif
 
