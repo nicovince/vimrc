@@ -22,6 +22,10 @@ let $vimfolder = expand('<sfile>:p:h')
 " the ^= assign the variable if the rhs is not already in the lhs
 set runtimepath^=$vimfolder
 
+" enable ctrl-p plugin :
+" http://kien.github.io/ctrlp.vim/
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 
 if $TERM == 'linux'
   set <F1>=[[A
