@@ -14,11 +14,12 @@ if v:progname =~? "evim"
   finish
 endif
 
-" runtimepath is used to get vim configuration folder
-" this is useful when vim is called from another user with
+" runtimepath is used to get vim configuration files and folders
+" default value is to $HOME/.vim which may not work when using
 " vim -u /path/to/vimrc
+" since i know this file is in my vim folder I can retrieve vim folder
+" by getting full path of this file without the filename
 let $vimfolder = expand('<sfile>:p:h')
-"let &runtimepath=expand('<sfile>:p:h') . "," . &runtimepath
 " the ^= assign the variable if the rhs is not already in the lhs
 set runtimepath^=$vimfolder
 
@@ -27,6 +28,9 @@ set runtimepath^=$vimfolder
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 
+" This was stolen from somewhere on the web to use F1-F12 keys in vim or maybe
+" it was gvim...
+" Anyway, I don't use them anymore...
 if $TERM == 'linux'
   set <F1>=[[A
   set <F2>=[[B
@@ -101,39 +105,42 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+set shell=/bin/bash " Shell to use for external command (:!ls)
 
-" display line number
-set number
-
-"status bar
-set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-"Always show status line
-set laststatus=2
-
-"colorscheme for black background :
-colorscheme mydarkblue
-" fix CursorColumn color group was : "hi CursorColumn term=reverse ctermbg=0 guibg=Grey40
-"hi CursorColumn term=reverse cterm=reverse ctermfg=4 ctermbg=7 gui=reverse guifg=#8080ff guibg=fg
+"-------------------------------
+" User interface configuration
+"-------------------------------
+set number " display line number
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P " status bar
+set laststatus=2 " Always show status line
+colorscheme mydarkblue " colorscheme for dark background
 
 " MyTabLine defined in $VIM/plugin/
 set tabline=%!MyTabLine()
 set guitablabel=%{GuiTabLabel()}
-" show tabline only if there are at least two tab
-set showtabline=1 " 2=always
-"autocmd GUIEnter * hi! TabLineFill term=underline cterm=underline gui=underline
-"autocmd GUIEnter * hi! TabLineSel term=bold,reverse,underline ctermfg=11 ctermbg=12 guifg=#ffff00 guibg=#0000ff gui=underline
 
+set showtabline=1 " show tabline only if there are at least two tab
+set wildmenu " show menu when pressing TAB in command mode
+set wildmode=list:longest " complete with longest common string
+set wildignore=*.o,*.obj,*.bak,*.exe,*~ " do not complete with some pattern
 
+set scrolloff=2 " two lines visible above and under cursor
+set ruler      " show the cursor position all the time
+set showcmd    " display incomplete commands
+set history=50 " keep 50 lines of command line history
+
+"---------------------
+" Edition options
+"---------------------
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-
 " wrap on a word insert of character at the end of a long line
 "set lbr
+set showmatch " show matching opening parenthesis, curly braces
+set expandtab " replace tabulation with spaces
+set incsearch  " do incremental searching
+set splitright " when splitting the cursor is on the right window
 
-" menu appears when tab is pressed while entering a commmand if multiple choices
-set wildmenu
-set wildmode=list:longest
-set wildignore=*.o,*.obj,*.bak,*.exe,*~
 
 
 if has("vms")
@@ -142,32 +149,15 @@ else
   set backup    " keep a backup file
 endif
 
-set history=50 " keep 50 lines of command line history
-set ruler      " show the cursor position all the time
-set showcmd    " display incomplete commands
-set incsearch  " do incremental searching
-set splitright " when splitting the cursor is on the right window
-
-" two lines visible above and under cursor
-set scrolloff=2
-
-" when typing a closing accolade, parenthesis or else jump
-" to the opening one a few seconds
-set showmatch
-
-" replace tabs whith space
-set expandtab
-
-
-" Specify shell used when calling shell (ie : :!ls)
-set shell=/bin/bash
-
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
+"-------------
+" Shortcuts
+"-------------
 " change current directory to current file directory
 map ,cd :lcd %:p:h<CR>
 

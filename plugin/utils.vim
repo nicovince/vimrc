@@ -41,6 +41,7 @@ function! GitBlame(...) range
   " and go back to saved directory
   exe "lcd " . l:cwd
 endfunction
+" Map the function
 vmap ,g :call GitBlame()<CR>
 
 
@@ -74,6 +75,8 @@ endfunction
 command! -bang -nargs=0 SetCStyleComment call SetCStyleComment()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Insert today's date and hour at the end of the current file, formatted for
+" weekly report (task, time spent, description)
 function WeeklyItem()
   " Since my home was moved to aloxe, the hour returned by strftime is off by
   " one
@@ -107,7 +110,7 @@ endfunction
 command! -bang -nargs=0 MatchEol call MatchEol()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Look in parent folders for a tag file
+" Look in parent folders for a tag file and add it to tags option
 function SetTagsFile()
   " Your customised tags go first.
   "set tags+=~/tags,$DOC/tags
@@ -156,6 +159,7 @@ command Dosformat :set ff=dos
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search pattern in the current verilog module
+" Useful when searching in a netlist
 function SearchInCurrentModule(search_pattern)
   " Replace search pattern with current word under cursor if search pattern
   " is empty
@@ -176,6 +180,7 @@ function SearchInCurrentModule(search_pattern)
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Used that to generate some specific code
 function! KprimeLprimeNs(idx, kp, lp, ns)
   let l:kp = a:kp
   if strlen(l:kp) == 1
