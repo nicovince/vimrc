@@ -252,6 +252,7 @@ if has("autocmd")
 
   " filetype
   autocmd BufNEwFile,BufRead *.vh setlocal filetype=verilog
+  autocmd BufNEwFile,BufRead SConstruct setlocal filetype=python
   autocmd BufNEwFile,BufRead *.cw setlocal filetype=c
   autocmd BufNEwFile,BufRead *.sv setlocal filetype=verilog
   autocmd BufNEwFile,BufRead *.lte setlocal filetype=xml
