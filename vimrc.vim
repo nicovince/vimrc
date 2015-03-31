@@ -259,6 +259,7 @@ if has("autocmd")
   autocmd BufNEwFile,BufRead hg-editor-*.txt setlocal syntax=hgcommit
   autocmd BufNEwFile,BufRead hg-editor.msg setlocal syntax=hgcommit
   autocmd BufRead,BufNewFile iceberg.txt set filetype=icelog
+  autocmd Filetype ada setlocal sw=2
 
   augroup END
 
