@@ -105,7 +105,11 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-set shell=/bin/bash " Shell to use for external command (:!ls)
+if has("win32")
+  set fileformats=dos,unix
+else
+  set shell=/bin/bash " Shell to use for external command (:!ls)
+endif
 
 "-------------------------------
 " User interface configuration
