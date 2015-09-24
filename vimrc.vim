@@ -122,6 +122,8 @@ colorscheme mydarkblue " colorscheme for dark background
 " MyTabLine defined in $VIM/plugin/
 set tabline=%!MyTabLine()
 set guitablabel=%{GuiTabLabel()}
+" Remove toolbar
+set guioptions-=T
 
 set showtabline=1 " show tabline only if there are at least two tab
 set wildmenu " show menu when pressing TAB in command mode
