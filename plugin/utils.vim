@@ -211,7 +211,7 @@ endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Insert item for after action reviw
-function AarItem()
+function! AarItem()
   let l:date = strftime("%a %d %b %Y")
     exec "normal o-----------------------------------------------------------------------------------------------------------------------"
   exec "normal Go".l:date . " : "
@@ -222,3 +222,20 @@ command! -bang -nargs=0 AarItem call AarItem()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indent json selection using python
 command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Open SPU/TPU logs in new tab
+function! SpuLog()
+  exec "tabe ".expand('%:h')."/log_check_SPU_1.log"
+  exec "sp ".expand('%:h')."/log_check_SPU_2.log"
+  exec "sp ".expand('%:h')."/log_check_SPU_3.log"
+endfunction
+
+function! TpuLog()
+  exec "tabe ".expand('%:h')."/log_check_TPU_1.log"
+  exec "sp ".expand('%:h')."/log_check_TPU_2.log"
+  exec "sp ".expand('%:h')."/log_check_TPU_3.log"
+endfunction
+function! Titi()
+  exec "tabe new.txt"
+endfunction
