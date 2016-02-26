@@ -45,7 +45,7 @@ if $TERM == 'linux'
   set <S-F6>=[32~
   set <S-F7>=[33~
   set <S-F8>=[34~
-  set <S-CR>=OM
+  "set <S-CR>=OM
 
   " `Gnome Terminal' fortunately sets $COLORTERM; it needs <BkSpc> and <Del>
   " fixing, and it has a bug which causes spurious "c"s to appear, which can be
