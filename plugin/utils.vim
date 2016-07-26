@@ -197,6 +197,17 @@ function! KprimeLprimeNs(idx, kp, lp, ns)
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" return 1 if path of current filename match Z:\ (alstom)
+" Used to set specific options for alstom files
+function! IsAlstomOpera()
+  let l:path = expand('%:p')
+  if l:path =~ 'Z:\\opera'
+    return 1
+  else
+    return 0
+  endif
+endfunction
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " return 1 if path of current filename match work/PI
 " This is used to have some specific vim options when working with Sequans/PI
 " files

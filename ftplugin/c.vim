@@ -10,6 +10,9 @@ if (IsSequansPI())
         setlocal shiftwidth=4
         setlocal tabstop=4
         setlocal noet
+elseif (IsAlstomOpera())
+        setlocal shiftwidth=4
+        setlocal tabstop=4
 endif
 
 function! CaUComment()
