@@ -88,16 +88,17 @@ function WeeklyItem()
   let l:time = l:hour . ":" . strftime("%M")
   let l:date = strftime("%a %d %b %Y")
   let l:week = strftime("%V")
-  " new week starts on friday
-  if strftime("%u")>4
-    let l:week = l:week + 1
-    if l:week<10
-      let l:week = "0" . l:week
-    endif
-    exec "normal Go"
-    exec "normal o-----------------------------------------------------------------------------------------------------------------------"
-  endif
-  exec "normal Go".l:week . ") " . l:date . " - " . l:time . " :                           |     |"
+  "" new week starts on friday
+  "if strftime("%u")>4
+  "  let l:week = l:week + 1
+  "  if l:week<10
+  "    let l:week = "0" . l:week
+  "  endif
+  "  exec "normal Go"
+  "  exec "normal o-----------------------------------------------------------------------------------------------------------------------"
+  "endif
+  "exec "normal Go".l:week . ") " . l:date . " - " . l:time . " :                           |     |"
+  exec "normal Go".l:week . ") " . l:date . " : "
 endfunction
 " alias
 command! -bang -nargs=0 WeeklyItem call WeeklyItem()
@@ -214,6 +215,15 @@ endfunction
 function! IsSequansPI()
   let l:path = expand('%:p')
   if l:path =~ 'work/PI'
+    return 1
+  else
+    return 0
+  endif
+endfunction
+
+function! IsNotiloPlus()
+  let l:path = expand('%:p')
+  if l:path =~ 'work/NotiloPlus'
     return 1
   else
     return 0
