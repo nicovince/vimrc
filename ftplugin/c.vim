@@ -13,6 +13,12 @@ if (IsSequansPI())
 elseif (IsAlstomOpera())
         setlocal shiftwidth=4
         setlocal tabstop=4
+elseif (IsPX4Fw())
+        " Px4 Firmware uses tabulation
+        " alignement with tab, so make tabstop at 8 spaces
+        setlocal noet
+        setlocal shiftwidth=8
+        setlocal tabstop=8
 elseif (IsNotiloPlus())
         setlocal et
         setlocal shiftwidth=4

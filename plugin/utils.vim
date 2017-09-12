@@ -221,9 +221,22 @@ function! IsSequansPI()
   endif
 endfunction
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" return 1 when editing a filename containing work/NotiloPlus
 function! IsNotiloPlus()
   let l:path = expand('%:p')
   if l:path =~ 'work/NotiloPlus'
+    return 1
+  else
+    return 0
+  endif
+endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" return 1 when editing a filename containing PX4Firmware
+function! IsPX4Fw()
+  let l:path = expand('%:p')
+  if l:path =~ 'PX4Firmware'
     return 1
   else
     return 0
