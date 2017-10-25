@@ -104,6 +104,21 @@ endfunction
 command! -bang -nargs=0 WeeklyItem call WeeklyItem()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Insert date hour at the end of the file
+function HourlyItem()
+  let l:hour = strftime("%H")
+  "if l:hour <= 9
+  "  let l:hour = "0" . l:hour
+  "endif
+  let l:time = strftime("%H") . ":" . strftime("%M")
+  let l:date = strftime("%a %d %b %Y")
+  let l:week = strftime("%V")
+  exec "normal Go-----------------------------------------------------------------------------------------------------------------------"
+  exec "normal Go".l:date . " - " . l:time
+endfunction
+" alias
+command! -bang -nargs=0 HourlyItem call HourlyItem()
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function MatchEol()
   bufdo highlight WhiteSpaceEol ctermbg=darkgreen guibg=lightgreen | match WhiteSpaceEol /\s\+$/
 endfunction
