@@ -4,7 +4,7 @@ if exists("b:did_ftplugin")
 endif
 
 setlocal et
-setlocal shiftwidth=2
+setlocal shiftwidth=4
 " Sequans PI config :
 if (IsSequansPI())
         setlocal shiftwidth=4
