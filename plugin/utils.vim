@@ -248,6 +248,17 @@ function! IsNotiloPlus()
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" return 1 when editing a filename in bracelet repository
+function! IsBracelet()
+  let l:path = expand('%:p')
+  if l:path =~ 'repos/Bracelet'
+    return 1
+  else
+    return 0
+  endif
+endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " return 1 when editing a filename containing PX4Firmware
 function! IsPX4Fw()
   let l:path = expand('%:p')
