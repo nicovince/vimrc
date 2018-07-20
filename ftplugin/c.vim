@@ -21,7 +21,7 @@ elseif (IsPX4Fw())
         setlocal tabstop=8
 elseif (IsBracelet())
         " Bracelet indentation is 2 spaces
-        setlocal et
+        setlocal noet
         setlocal shiftwidth=2
         setlocal tabstop=2
 elseif (IsNotiloPlus())
