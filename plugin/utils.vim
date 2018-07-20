@@ -299,3 +299,16 @@ endfunction
 function! Titi()
   exec "tabe new.txt"
 endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+function StripTrailingWhitespace()
+  if !&binary && &filetype != 'diff'
+    normal mz
+    normal Hmy
+    %s/\s\+$//e
+    normal 'yz<CR>
+    normal `z
+  endif
+endfunction
+command! -bang -nargs=0 StripTrailingWS call StripTrailingWhitespace()
