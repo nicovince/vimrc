@@ -8,6 +8,34 @@ let loaded_utils = 1
 command! -bar -range=% Reverse <line1>,<line2>g/^/m<line1>-1|nohl
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Swap two words on selection
+"%s/\v(foo|bar)/\={'foo':'bar','bar':'foo'}[submatch(0)]/g
+function! Mirror(dict)
+    for [key, value] in items(a:dict)
+        let a:dict[value] = key
+    endfor
+    return a:dict
+endfunction
+
+function! S(number)
+    return submatch(a:number)
+endfunction
+function! SwapWords(dict, ...)
+    let words = keys(a:dict) + values(a:dict)
+    let words = map(words, 'escape(v:val, "|")')
+    if(a:0 == 1)
+        let delimiter = a:1
+    else
+        let delimiter = '/'
+    endif
+    let pattern = '\v(' . join(words, '|') . ')'
+    exe '%s' . delimiter . pattern . delimiter
+        \ . '\=' . string(Mirror(a:dict)) . '[S(0)]'
+        \ . delimiter . 'g'
+endfunction
+
+":call SwapWords({'foo':'bar'})
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SVN stuff
 function! SvnBlame(...) range
   let l:revision = a:0 >= 1 ? "-r " . a:1 . " " : ""
