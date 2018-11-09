@@ -298,6 +298,17 @@ function! IsPX4Fw()
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" return 1 when editing for r4ip
+function! IsR4ip()
+  let l:path = expand('%:p')
+  if l:path =~ 'r4ip'
+    return 1
+  else
+    return 0
+  endif
+endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Insert item for after action reviw
 function! AarItem()
   let l:date = strftime("%a %d %b %Y")

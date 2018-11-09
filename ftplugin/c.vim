@@ -28,6 +28,10 @@ elseif (IsNotiloPlus())
         setlocal et
         setlocal shiftwidth=4
         setlocal tabstop=4
+elseif (IsR4ip())
+        setlocal noet
+        setlocal shiftwidth=8
+        setlocal tabstop=8
 endif
 
 function! CaUComment()
