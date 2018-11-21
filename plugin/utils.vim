@@ -309,6 +309,18 @@ function! IsR4ip()
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" return 1 when editing for siema
+function! IsSiema()
+  let l:path = expand('%:p')
+  if l:path =~ 'work/siema'
+    return 1
+  else
+    return 0
+  endif
+endfunction
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Insert item for after action reviw
 function! AarItem()
   let l:date = strftime("%a %d %b %Y")
