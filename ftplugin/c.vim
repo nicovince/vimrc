@@ -28,6 +28,10 @@ elseif (IsNotiloPlus())
         setlocal et
         setlocal shiftwidth=4
         setlocal tabstop=4
+elseif (IsSiemaInno())
+        setlocal expandtab
+        setlocal shiftwidth=4
+        setlocal tabstop=4
 elseif (IsSiema())
         setlocal noet
         setlocal shiftwidth=4
