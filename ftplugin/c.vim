@@ -33,7 +33,7 @@ elseif (IsSiemaInno())
         setlocal shiftwidth=4
         setlocal tabstop=4
 elseif (IsSiema())
-        setlocal noet
+        setlocal expandtab
         setlocal shiftwidth=4
         setlocal tabstop=4
 endif
