@@ -52,7 +52,7 @@ vmap gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GIT stuff
 function! GitBlame(...) range
-  let l:revision = a:0 >= 1 ? "-r " . a:1 . " " : ""
+  let l:revision = a:0 >= 1 ? a:1 . " " : ""
   " Save current directory
   let l:cwd = getcwd()
   " Get dirname of current file and cd to it to make sure we are in the valid git repository
