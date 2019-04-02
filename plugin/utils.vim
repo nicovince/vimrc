@@ -308,7 +308,16 @@ function! IsR4ip()
   endif
 endfunction
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" return 1 when editing for linux
+function! IsLinux()
+  let l:path = expand('%:p')
+  if l:path =~ 'linux'
+    return 1
+  else
+    return 0
+  endif
+endfunction
+"
 " return 1 when editing for siema innovation
 function! IsSiemaInno()
   let l:path = expand('%:p')
