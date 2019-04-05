@@ -7,8 +7,8 @@ setlocal et
 setlocal shiftwidth=4
 " Sequans PI config :
 if (IsLinux())
-        setlocal shiftwidth=4
-        setlocal tabstop=4
+        setlocal shiftwidth=8
+        setlocal tabstop=8
         setlocal noexpandtab
 elseif (IsSiemaInno())
         setlocal expandtab
