@@ -221,8 +221,8 @@ endif
 map <Leader>wn <ESC>:highlight WhiteSpaceEol ctermbg=darkgreen guibg=lightgreen<CR><ESC>:match WhiteSpaceEol /\s\+$/<CR>
 map <Leader>wf <ESC>:highlight WhiteSpaceEol NONE<CR>
 " uncomment the following to enable highlight of trailing whitespaces by default
-"autocmd BufAdd,BufRead * highlight WhiteSpaceEol ctermbg=darkgreen guibg=lightgreen
-"autocmd BufAdd,BufRead * match WhiteSpaceEol /\s\+$/
+autocmd BufAdd,BufRead * highlight WhiteSpaceEol ctermbg=darkgreen guibg=lightgreen
+autocmd BufAdd,BufRead * match WhiteSpaceEol /\s\+$/
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Abbreviation in command mode to replace '%%' with the path of the current
