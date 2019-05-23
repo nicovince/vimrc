@@ -6,7 +6,7 @@ endif
 setlocal et
 setlocal shiftwidth=4
 " Sequans PI config :
-if (IsLinux())
+if (IsLinux() || IsLinuxDrivers())
         setlocal shiftwidth=8
         setlocal tabstop=8
         setlocal noexpandtab

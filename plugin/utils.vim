@@ -317,6 +317,15 @@ function! IsLinux()
     return 0
   endif
 endfunction
+" return 1 when editing for linux drivers out of tree
+function! IsLinuxDrivers()
+  let l:path = expand('%:p')
+  if l:path =~ 'siema_devices'
+    return 1
+  else
+    return 0
+  endif
+endfunction
 "
 " return 1 when editing for siema innovation
 function! IsSiemaInno()
