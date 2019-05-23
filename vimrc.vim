@@ -111,6 +111,19 @@ else
   set shell=/bin/bash " Shell to use for external command (:!ls)
 endif
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Highlight trailing space, must be set before colorscheme commande
+"https://vim.fandom.com/wiki/Highlight_unwanted_spaces
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+" highligt trailing spaces on/off \wn / \wf
+nnoremap <Leader>wn :match ExtraWhitespace /\s\+$/<CR>
+nnoremap <Leader>wf :match<CR>
 "-------------------------------
 " User interface configuration
 "-------------------------------
@@ -215,14 +228,6 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
 endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" highligt trailing spaces on/off \wn / \wf
-map <Leader>wn <ESC>:highlight WhiteSpaceEol ctermbg=darkgreen guibg=lightgreen<CR><ESC>:match WhiteSpaceEol /\s\+$/<CR>
-map <Leader>wf <ESC>:highlight WhiteSpaceEol NONE<CR>
-" uncomment the following to enable highlight of trailing whitespaces by default
-autocmd BufAdd,BufRead * highlight WhiteSpaceEol ctermbg=darkgreen guibg=lightgreen
-autocmd BufAdd,BufRead * match WhiteSpaceEol /\s\+$/
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Abbreviation in command mode to replace '%%' with the path of the current
