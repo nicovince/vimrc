@@ -130,7 +130,7 @@ nnoremap <Leader>wf :match<CR>
 set number " display line number
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P " status bar
 set laststatus=2 " Always show status line
-colorscheme mydarkblue " colorscheme for dark background
+colorscheme desert
 
 " MyTabLine defined in $VIM/plugin/
 set tabline=%!MyTabLine()
