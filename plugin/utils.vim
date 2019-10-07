@@ -70,7 +70,7 @@ function! GitBlame(...) range
   exe "lcd " . l:cwd
 endfunction
 " Map the function
-vmap ,g :call GitBlame()<CR>
+vmap <Leader>gb :call GitBlame()<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
