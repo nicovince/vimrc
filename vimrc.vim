@@ -184,23 +184,14 @@ map ,cd :lcd %:p:h<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctags mapping
 " jump to tag under cursor
-map <F2> :tjump <C-R><C-W> <CR>zt
 map ,z :tjump <C-R><C-W> <CR>zt
-map <S-F2> :tab split <CR> :tjump <C-R><C-W> <CR>zt
 map ,t :tab split <CR> :tjump <C-R><C-W> <CR>zt
 " open a preview window and jump to to tag under cursor
-map <F3> :ptjump <C-R><C-W><CR>
 map ,p :ptjump <C-R><C-W><CR>
 " split preview window
-map <S-F3> :stjump <C-R><C-W><CR>
 map ,s :stjump <C-R><C-W><CR>
 " close preview window
-map <F4> :pclose <CR>
 map ,c :pclose <CR>
-" unmap operator pending mode
-ounmap <F2>
-ounmap <F3>
-ounmap <F4>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
