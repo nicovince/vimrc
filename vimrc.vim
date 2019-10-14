@@ -178,20 +178,20 @@ map Q gq
 " Shortcuts
 "-------------
 " change current directory to current file directory
-map ,cd :lcd %:p:h<CR>
+map !cd :lcd %:p:h<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctags mapping
 " jump to tag under cursor
-map ,z :tjump <C-R><C-W> <CR>zt
-map ,t :tab split <CR> :tjump <C-R><C-W> <CR>zt
+map !z :tjump <C-R><C-W> <CR>zt
+map !t :tab split <CR> :tjump <C-R><C-W> <CR>zt
 " open a preview window and jump to to tag under cursor
-map ,p :ptjump <C-R><C-W><CR>
+map !p :ptjump <C-R><C-W><CR>
 " split preview window
-map ,s :stjump <C-R><C-W><CR>
+map !s :stjump <C-R><C-W><CR>
 " close preview window
-map ,c :pclose <CR>
+map !c :pclose <CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
