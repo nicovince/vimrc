@@ -116,22 +116,44 @@ endif
 " Based on https://vim.fandom.com/wiki/Highlight_unwanted_spaces
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 highlight ExtraWhitespace ctermbg=red guibg=red
+let g:highlight_trailing_ws = 1
+
 " Match all whitespaces at end of line
 function MatchTrailingWS()
-    match ExtraWhitespace /\s\+$/
+    if g:highlight_trailing_ws == 1
+        match ExtraWhitespace /\s\+$/
+    endif
 endfunction
+
 " Match whitespaces at end of line except for current line
 function MatchTrailingWSExceptCurrent()
-    match ExtraWhitespace /\s\+\%#\@<!$/
+    if g:highlight_trailing_ws == 1
+        match ExtraWhitespace /\s\+\%#\@<!$/
+    endif
 endfunction
-"match ExtraWhitespace /\s\+$/
+
+" Enable highlighting
+function EnableHighlightTrailingWS()
+    let g:highlight_trailing_ws = 1
+    highlight ExtraWhitespace ctermbg=red guibg=red
+    call MatchTrailingWS()
+endfunction
+
+" Disable highlighting
+function DisableHighlightTrailingWS()
+    let g:highlight_trailing_ws = 0
+    highlight clear ExtraWhitespace
+endfunction
+
+call MatchTrailingWS()
 autocmd WinEnter * call MatchTrailingWS()
 autocmd InsertEnter * call MatchTrailingWSExceptCurrent()
 autocmd InsertLeave * call MatchTrailingWS()
 autocmd BufWinLeave * call clearmatches()
-" highligt trailing spaces on/off \wn / \wf
-nnoremap <Leader>wn :match ExtraWhitespace /\s\+$/<CR>
-nnoremap <Leader>wf :match<CR>
+
+" highlight trailing spaces on/off \wn / \wf
+nnoremap <Leader>wn :call EnableHighlightTrailingWS()<CR>
+nnoremap <Leader>wf :call DisableHighlightTrailingWS()<CR>
 "-------------------------------
 " User interface configuration
 "-------------------------------
