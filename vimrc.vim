@@ -112,14 +112,22 @@ else
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Highlight trailing space, must be set before colorscheme commande
-"https://vim.fandom.com/wiki/Highlight_unwanted_spaces
+" Highlight trailing space, must be set before colorscheme command
+" Based on https://vim.fandom.com/wiki/Highlight_unwanted_spaces
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd WinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+" Match all whitespaces at end of line
+function MatchTrailingWS()
+    match ExtraWhitespace /\s\+$/
+endfunction
+" Match whitespaces at end of line except for current line
+function MatchTrailingWSExceptCurrent()
+    match ExtraWhitespace /\s\+\%#\@<!$/
+endfunction
+"match ExtraWhitespace /\s\+$/
+autocmd WinEnter * call MatchTrailingWS()
+autocmd InsertEnter * call MatchTrailingWSExceptCurrent()
+autocmd InsertLeave * call MatchTrailingWS()
 autocmd BufWinLeave * call clearmatches()
 " highligt trailing spaces on/off \wn / \wf
 nnoremap <Leader>wn :match ExtraWhitespace /\s\+$/<CR>
