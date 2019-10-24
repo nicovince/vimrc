@@ -27,6 +27,11 @@ set runtimepath^=$vimfolder
 " http://kien.github.io/ctrlp.vim/
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
+let $localvimrc = $vimfolder . "/local.vim"
+if filereadable($localvimrc)
+  source $localvimrc
+endif
+
 
 " This was stolen from somewhere on the web to use F1-F12 keys in vim or maybe
 " it was gvim...
