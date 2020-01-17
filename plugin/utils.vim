@@ -330,6 +330,15 @@ function! IsSiema()
   endif
 endfunction
 
+function! IsLibOpenCm3()
+  let l:path = expand('%:p')
+  if l:path =~ 'libopencm3'
+    return 1
+  else
+    return 0
+  endif
+endfunction
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Insert item for after action reviw
