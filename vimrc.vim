@@ -26,10 +26,12 @@ set runtimepath^=$vimfolder
 " enable ctrl-p plugin :
 " http://kien.github.io/ctrlp.vim/
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-filetype off
-set runtimepath^=/usr/share/lilypond/2.18.2/vim/
-filetype on
-syntax on
+if isdirectory("/usr/share/lilypond/2.18.2/vim/")
+  filetype off
+  set runtimepath^=/usr/share/lilypond/2.18.2/vim/
+  filetype on
+  syntax on
+endif
 
 
 let $localvimrc = $vimfolder . "/local.vim"
