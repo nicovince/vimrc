@@ -275,6 +275,14 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Saner command line history
+" uses ctrl-p and ctrl-n to go up in history by recalling command line whose
+" beginning matches the current command line (similar to bash
+" history-search-backward/forward)
+cnoremap <c-n>  <down>
+cnoremap <c-p>  <up>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Abbreviation in command mode to replace '%%' with the path of the current
 " file
 " http://vim.wikia.com/wiki/Easy_edit_of_files_in_the_same_directory
