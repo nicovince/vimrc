@@ -23,19 +23,12 @@ let $vimfolder = expand('<sfile>:p:h')
 " the ^= assign the variable if the rhs is not already in the lhs
 set runtimepath^=$vimfolder
 
-" enable ctrl-p plugin :
-" http://kien.github.io/ctrlp.vim/
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
 if isdirectory("/usr/share/lilypond/2.18.2/vim/")
   filetype off
   set runtimepath^=/usr/share/lilypond/2.18.2/vim/
   filetype on
   syntax on
 endif
-
-" enable dockerfile syntax
-set runtimepath^=~/.vim/bundle/Dockerfile.vim
 
 let $localvimrc = $vimfolder . "/local.vim"
 if filereadable($localvimrc)

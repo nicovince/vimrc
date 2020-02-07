@@ -1,8 +1,8 @@
 [submodule "bundle/ctrlp.vim"]
-	path = bundle/ctrlp.vim
+	path = pack/ctrlp/start/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "bundle/Dockerfile.vim"]
-	path = bundle/Dockerfile.vim
+	path = pack/Dockerfile/start/Dockerfile.vim
 	url = https://github.com/ekalinin/Dockerfile.vim.git
 [submodule "bundle/vim-surround"]
 	path = pack/surround/start/vim-surround
