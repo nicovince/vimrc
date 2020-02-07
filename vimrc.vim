@@ -36,10 +36,6 @@ endif
 
 " enable dockerfile syntax
 set runtimepath^=~/.vim/bundle/Dockerfile.vim
-filetype off
-set runtimepath^=/usr/share/lilypond/2.18.2/vim/
-filetype on
-syntax on
 
 let $localvimrc = $vimfolder . "/local.vim"
 if filereadable($localvimrc)
