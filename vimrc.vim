@@ -166,7 +166,7 @@ nnoremap <Leader>wf :call DisableHighlightTrailingWS()<CR>
 " User interface configuration
 "-------------------------------
 set number " display line number
-set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P " status bar
+set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P "status bar
 set laststatus=2 " Always show status line
 colorscheme desert
 
