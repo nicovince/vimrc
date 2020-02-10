@@ -173,6 +173,32 @@ colorscheme desert
 " MyTabLine defined in $VIM/plugin/
 set tabline=%!MyTabLine()
 set guitablabel=%{GuiTabLabel()}
+
+" Lightline configuration, overrides statusline and tabline
+let g:lightline = {
+  \ 'colorscheme': 'wombat',
+  \ 'component_function': {
+  \   'gitbranch': 'FugitiveStatusline'
+  \ },
+  \ }
+let g:lightline.component = {
+  \ 'charvalhexprefix': '0x%B'}
+let g:lightline.tabline = {
+  \ 'left': [ [ 'tabs' ] ],
+  \ 'right': [ [ 'close' ] ] }
+let g:lightline.active = {
+  \ 'left': [ [ 'mode', 'paste' ],
+  \           [ 'readonly', 'filename', 'modified' ],
+  \           [ 'gitbranch'] ],
+  \ 'right': [ [ 'charvalhexprefix', 'lineinfo' ],
+  \            [ 'percent' ],
+  \            [ 'fileformat', 'fileencoding', 'filetype' ] ] }
+
+let g:lightline.inactive = {
+  \ 'left': [ [ 'filename', 'modified' ] ],
+  \ 'right': [ [ 'line' ],
+  \            [ 'percent' ] ] }
+
 " Remove toolbar
 set guioptions-=T
 
