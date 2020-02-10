@@ -1,14 +1,14 @@
 [submodule "bundle/ctrlp.vim"]
-	path = pack/ctrlp/start/ctrlp.vim
+	path = pack/plugins/start/ctrlp
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "bundle/Dockerfile.vim"]
-	path = pack/Dockerfile/start/Dockerfile.vim
+	path = pack/plugins/start/dockerfile
 	url = https://github.com/ekalinin/Dockerfile.vim.git
 [submodule "bundle/vim-surround"]
-	path = pack/surround/start/vim-surround
+	path = pack/plugins/start/surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule "pack/fugitive/start/vim-fugitive"]
-	path = pack/fugitive/start/vim-fugitive
+	path = pack/plugins/start/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "pack/plugins/start/lightline.vim"]
 	path = pack/plugins/start/lightline
