@@ -176,7 +176,6 @@ set guitablabel=%{GuiTabLabel()}
 
 " Lightline configuration, overrides statusline and tabline
 let g:lightline = {
-  \ 'colorscheme': 'wombat',
   \ 'component_function': {
   \   'gitbranch': 'FugitiveStatusline'
   \ },
