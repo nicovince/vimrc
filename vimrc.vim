@@ -194,7 +194,7 @@ let g:lightline.active = {
   \            [ 'fileformat', 'fileencoding', 'filetype' ] ] }
 
 let g:lightline.inactive = {
-  \ 'left': [ [ 'filename', 'modified' ] ],
+  \ 'left': [ [ 'relativepath', 'modified' ] ],
   \ 'right': [ [ 'line' ],
   \            [ 'percent' ] ] }
 
