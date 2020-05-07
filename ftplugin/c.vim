@@ -30,6 +30,17 @@ nnoremap <F12> :call CaUComment()<CR>
 inoremap <F12> :call CaUComment()<CR>
 vnoremap <F12> :call CaUComment()<CR>
 
+function! CHdrGuard()
+        let l:filename = expand("%:t")
+        let l:guard = "__" . substitute(toupper(l:filename), "\\.", "_", "g") . "__"
+        let l:guard = substitute(l:guard, "-", "_", "g")
+        exec "normal ggO#ifndef " . l:guard
+        exec "normal o#define " . l:guard
+        exec "normal Go#endif /* " . l:guard . " */"
+        exec "normal O"
+endfunction
+command! -bang -nargs=0 CHdrGuard call CHdrGuard()
+
 
 """"""""""""""""""""""""""
 " ENV indentation style
