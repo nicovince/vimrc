@@ -189,9 +189,9 @@ let g:lightline.active = {
   \ 'left': [ [ 'mode', 'paste' ],
   \           [ 'readonly', 'filename', 'modified' ],
   \           [ 'gitbranch'] ],
-  \ 'right': [ [ 'charvalhexprefix', 'lineinfo' ],
+  \ 'right': [ [ 'lineinfo' ],
   \            [ 'percent' ],
-  \            [ 'fileformat', 'fileencoding', 'filetype' ] ] }
+  \            [ 'fileformat', 'fileencoding' ] ] }
 
 let g:lightline.inactive = {
   \ 'left': [ [ 'relativepath', 'modified' ] ],
