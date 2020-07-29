@@ -6,6 +6,11 @@ echo 'source $HOME/.vim/vimrc.vim' > $HOME/.vimrc
 
 Beware, this will overwrite your `~/.vimrc`
 
+Configure email address for repositories cloned on companies workstations:
+```
+git config --local user.email $(git log -1 5c4f4e3f61f6475ca1d05fc40a57fbfaed66fc5c --pretty=format:"%ae")
+```
+
 # Make documentation from plugins available
 ```
 find pack -name "doc" -exec vim -u NONE -c "helptags {}" -c q \;
