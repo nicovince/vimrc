@@ -30,6 +30,13 @@ if isdirectory("/usr/share/lilypond/2.18.2/vim/")
   syntax on
 endif
 
+if isdirectory("/usr/share/lilypond/2.20.0/vim/")
+  filetype off
+  set runtimepath^=/usr/share/lilypond/2.20.0/vim/
+  filetype on
+  syntax on
+endif
+
 let $localvimrc = $vimfolder . "/local.vim"
 if filereadable($localvimrc)
   source $localvimrc
