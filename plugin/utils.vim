@@ -367,9 +367,6 @@ function! TpuLog()
   exec "sp ".expand('%:h')."/log_check_TPU_2.log"
   exec "sp ".expand('%:h')."/log_check_TPU_3.log"
 endfunction
-function! Titi()
-  exec "tabe new.txt"
-endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -383,3 +380,12 @@ function StripTrailingWhitespace()
   endif
 endfunction
 command! -bang -nargs=0 StripTrailingWS call StripTrailingWhitespace()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+function InternetMailQuoting()
+  %s/^>/>>/
+  %s/\(^[^>]\)/> \1/
+  %s/^$/>
+  normal ggxjx
+endfunction
