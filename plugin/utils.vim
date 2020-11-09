@@ -320,6 +320,16 @@ function! IsSiemaInno()
   endif
 endfunction
 
+" return 1 when editing for zephyr
+function! IsZephyr()
+  let l:path = expand('%:p')
+  if l:path =~ 'zephyr'
+    return 1
+  else
+    return 0
+  endif
+endfunction
+
 " return 1 when editing for siema
 function! IsSiema()
   let l:path = expand('%:p')

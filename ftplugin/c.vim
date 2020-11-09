@@ -7,7 +7,7 @@ let b:did_ftplugin = 1
 setlocal et
 setlocal shiftwidth=4
 " Sequans PI config :
-if (IsLinux() || IsLinuxDrivers() || IsLibOpenCm3())
+if (IsLinux() || IsLinuxDrivers() || IsLibOpenCm3() || IsZephyr())
         setlocal shiftwidth=8
         setlocal tabstop=8
         setlocal noexpandtab
