@@ -400,3 +400,14 @@ function InternetMailQuoting()
   %s/^$/>
   normal ggxjx
 endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! LaunchGDB(gdb, elf_file)
+    let g:termdebug_popup = 0
+    let g:termdebug_wide = 163
+    let g:termdebugger = a:gdb
+    exec "packadd termdebug"
+    exec "Termdebug " . a:elf_file
+endfunction
+command! -nargs=+ LaunchGDB call LaunchGDB(<f-args>)
+command! -nargs=1 ZephyrGDB call LaunchGDB("/home/nicolas/.local/opt/zephyr-sdk-0.11.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb", <f-args>)
