@@ -392,7 +392,8 @@ endfunction
 command! -bang -nargs=0 StripTrailingWS call StripTrailingWhitespace()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
+" Used in conjonction with GhostScript to edit textbox area from outlook
+" This will properly format the mail response for Linux Kernel Mailing List
 function InternetMailQuoting()
   %s/^>/>>/
   %s/\(^[^>]\)/> \1/
