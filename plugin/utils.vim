@@ -409,5 +409,5 @@ function! LaunchGDB(gdb, elf_file)
     exec "packadd termdebug"
     exec "Termdebug " . a:elf_file
 endfunction
-command! -nargs=+ LaunchGDB call LaunchGDB(<f-args>)
-command! -nargs=1 ZephyrGDB call LaunchGDB("/home/nicolas/.local/opt/zephyr-sdk-0.11.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb", <f-args>)
+command! -complete=file -nargs=+ LaunchGDB call LaunchGDB(<f-args>)
+command! -complete=file -nargs=1 ZephyrGDB call LaunchGDB("/home/nicolas/.local/opt/zephyr-sdk-0.11.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb", <f-args>)
