@@ -320,6 +320,16 @@ function! IsSiemaInno()
   endif
 endfunction
 
+" return 1 when editing for zephyr
+function! IsZephyr()
+  let l:path = expand('%:p')
+  if l:path =~ 'zephyr'
+    return 1
+  else
+    return 0
+  endif
+endfunction
+
 " return 1 when editing for siema
 function! IsSiema()
   let l:path = expand('%:p')
@@ -367,9 +377,6 @@ function! TpuLog()
   exec "sp ".expand('%:h')."/log_check_TPU_2.log"
   exec "sp ".expand('%:h')."/log_check_TPU_3.log"
 endfunction
-function! Titi()
-  exec "tabe new.txt"
-endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -383,3 +390,24 @@ function StripTrailingWhitespace()
   endif
 endfunction
 command! -bang -nargs=0 StripTrailingWS call StripTrailingWhitespace()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Used in conjonction with GhostScript to edit textbox area from outlook
+" This will properly format the mail response for Linux Kernel Mailing List
+function InternetMailQuoting()
+  %s/^>/>>/
+  %s/\(^[^>]\)/> \1/
+  %s/^$/>
+  normal ggxjx
+endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! LaunchGDB(gdb, elf_file)
+    let g:termdebug_popup = 0
+    let g:termdebug_wide = 163
+    let g:termdebugger = a:gdb
+    exec "packadd termdebug"
+    exec "Termdebug " . a:elf_file
+endfunction
+command! -complete=file -nargs=+ LaunchGDB call LaunchGDB(<f-args>)
+command! -complete=file -nargs=1 ZephyrGDB call LaunchGDB("/home/nicolas/.local/opt/zephyr-sdk-0.11.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb", <f-args>)

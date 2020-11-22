@@ -16,3 +16,6 @@
 [submodule "pack/plugins/start/vim-bitbake"]
 	path = pack/plugins/start/vim-bitbake
 	url = https://github.com/kergoth/vim-bitbake
+[submodule "pack/plugins/start/ghost-text.vim"]
+	path = pack/plugins/start/ghost-text.vim
+	url = https://github.com/pandysong/ghost-text.vim.git
