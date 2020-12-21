@@ -410,20 +410,22 @@ function! LaunchGDB(gdb, elf_file)
     exec "Termdebug " . a:elf_file
 endfunction
 command! -complete=file -nargs=+ LaunchGDB call LaunchGDB(<f-args>)
-command! -complete=file -nargs=1 ZephyrGDB call LaunchGDB("/home/nicolas/.local/opt/zephyr-sdk-0.11.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb", <f-args>)
 
-function! LaunchGDBTTY(gdb, elf_file, tty)
-  echo a:gdb
+function! LaunchGDBNoStdout(gdb, elf_file)
   call LaunchGDB(a:gdb, a:elf_file)
   let l:gdb_connection_string = "target remote localhost:3333"
   let l:prog_bn = bufnr("gdb program")
   let l:gdb_bn = bufnr(a:gdb)
   let l:gdb_winid = win_findbuf(l:gdb_bn)[0]
   exec "bd! " . l:prog_bn
-  exec "term screen " . a:tty . " 115200 8N1"
-  echo l:gdb_winid
   call win_gotoid(l:gdb_winid)
   call feedkeys(l:gdb_connection_string)
+endfunction
+command! -complete=file -nargs=1 ZephyrGDB call LaunchGDBNoStdout("/home/nicolas/.local/opt/zephyr-sdk-0.11.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb", <f-args>)
+
+function! LaunchGDBTTY(gdb, elf_file, tty)
+  call LaunchGDBNoStdout(a:gdb, a:elf_file)
+  exec "term screen " . a:tty . " 115200 8N1"
 endfunction
 command! -complete=file -nargs=+ LaunchGDBTTY call LaunchGDBTTY(<f-args>)
 command! -complete=file -nargs=+ ZephGDBACM0 call LaunchGDBTTY("/home/nicolas/.local/opt/zephyr-sdk-0.11.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb", <f-args>, "/dev/ttyACM0")
