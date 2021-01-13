@@ -419,7 +419,7 @@ function! LaunchGDBNoStdout(gdb, elf_file)
   let l:gdb_winid = win_findbuf(l:gdb_bn)[0]
   exec "bd! " . l:prog_bn
   call win_gotoid(l:gdb_winid)
-  call feedkeys(l:gdb_connection_string)
+  call feedkeys(l:gdb_connection_string, 'x')
 endfunction
 command! -complete=file -nargs=1 ZephyrGDB call LaunchGDBNoStdout("/home/nicolas/.local/opt/zephyr-sdk-0.11.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb", <f-args>)
 
