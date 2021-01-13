@@ -181,7 +181,8 @@ let g:lightline = {
   \ },
   \ }
 let g:lightline.component = {
-  \ 'charvalhexprefix': '0x%B'}
+  \ 'charvalhexprefix': '0x%B',
+  \ 'lineinfovirt': '%3l:%-2c%2V'}
 let g:lightline.tabline = {
   \ 'left': [ [ 'tabs' ] ],
   \ 'right': [ [ 'close' ] ] }
@@ -189,7 +190,7 @@ let g:lightline.active = {
   \ 'left': [ [ 'mode', 'paste' ],
   \           [ 'readonly', 'filename', 'modified' ],
   \           [ 'gitbranch'] ],
-  \ 'right': [ [ 'lineinfo' ],
+  \ 'right': [ [ 'lineinfovirt' ],
   \            [ 'percent' ],
   \            [ 'fileformat', 'fileencoding' ] ] }
 
