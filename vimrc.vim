@@ -333,6 +333,7 @@ if has("autocmd")
     \ endif
 
   " filetype
+  autocmd BufNEwFile,BufRead *.overlay setlocal filetype=dts
   autocmd BufNEwFile,BufRead *.vh setlocal filetype=verilog
   autocmd BufNEwFile,BufRead SConstruct setlocal filetype=python
   autocmd BufNEwFile,BufRead *.cw setlocal filetype=c
