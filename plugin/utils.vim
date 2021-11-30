@@ -411,11 +411,11 @@ function! LaunchGDB(gdb, elf_file)
 endfunction
 command! -complete=file -nargs=+ LaunchGDB call LaunchGDB(<f-args>)
 
-let g:zephyr_gdb = "/opt/zephyr-sdk-0.12.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb"
+let g:zephyr_gdb = "/opt/zephyr-sdk-0.13.1/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb"
 function! LaunchGDBNoStdout(gdb, elf_file)
   call LaunchGDB(a:gdb, a:elf_file)
   let l:gdb_connection_string = "target remote localhost:3333"
-  let l:prog_bn = bufnr("gdb program")
+  let l:prog_bn = bufnr("debugged program")
   let l:gdb_bn = bufnr(a:gdb)
   let l:gdb_winid = win_findbuf(l:gdb_bn)[0]
   exec "bd! " . l:prog_bn
