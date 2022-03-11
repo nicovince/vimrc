@@ -28,16 +28,9 @@ repos:
               colors/oceandeep.vim       |
               colors/peaksea.vim         |
               colors/wombat.vim          |
-              ftplugin/perl.vim          |
-              ftplugin/perl6.vim         |
               ftplugin/python_match.vim  |
               ftplugin/xml.vim           |
               ftplugin/xs.vim            |
-              indent/perl.vim            |
-              indent/perl6.vim           |
-              indent/perl6.vim           |
-              indent/tex.vim             |
-              macros/less.vim            |
               plugin/AlignMapsPlugin.vim |
               plugin/AlignPlugin.vim     |
               plugin/AnsiEsc_v2.vim      |
@@ -50,7 +43,6 @@ repos:
               plugin/tabline.vim         |
               syntax/dokuwiki.vim        |
               syntax/octave.vim          |
-              syntax/perl.vim            |
               syntax/pod.vim             |
               syntax/sh.vim              |
               syntax/tt2.vim             |
