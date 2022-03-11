@@ -1,16 +1,16 @@
 " Only do this when not done yet for this buffer
-if exists("b:did_ftplugin")
+if exists('b:did_ftplugin')
 	finish
 endif
 let b:did_ftplugin = 1
 " vim: set et sw=2:
 
 function! NoComment()
-  exec "normal o<no_comment></>"
+  exec 'normal o<no_comment></>'
 endfunction
 com! -bang -nargs=0 NoComment call NoComment()
 
 function! Bugz()
-  exec "normal o<bug id= status= > </>"
+  exec 'normal o<bug id= status= > </>'
 endfunction
 com! -bang -nargs=0 Bugz call Bugz()

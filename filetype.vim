@@ -1,5 +1,5 @@
 " Mon fichier de types de fichiers
-if exists("did_load_filetypes")
+if exists('did_load_filetypes')
   finish
 endif
 augroup filetypedetect

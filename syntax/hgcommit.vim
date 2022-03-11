@@ -3,7 +3,7 @@
 " Filenames:    ^hg-editor-*.txt
 " Last Change:  2009/04/30
 
-if exists("b:current_syntax")
+if exists('b:current_syntax')
     finish
 endif
 
@@ -24,5 +24,5 @@ hi def link hgcommitChanged         Type
 hi def link hgcommitRemoved         Type
 hi def link hgcommitFile            Constant
 
-let b:current_syntax = "hgcommit"
+let b:current_syntax = 'hgcommit'
 

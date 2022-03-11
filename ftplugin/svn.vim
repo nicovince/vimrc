@@ -1,12 +1,11 @@
 " Only do this when not done yet for this buffer
-if exists("b:did_ftplugin")
+if exists('b:did_ftplugin')
 	finish
 endif
 let b:did_ftplugin = 1
-" vim: set et sw=2:
 
 function! NoComment()
-  exec "normal ggO<no_comment></>"
+  exec 'normal ggO<no_comment></>'
 endfunction
 com! -bang -nargs=0 NoComment call NoComment()
 
@@ -17,7 +16,7 @@ function! Svn_diff_windows()
 
     while i <= line('$')
         let line = getline(i)
-        if line =~ '^M'
+        if line =~# '^M'
 
             let file = substitute(line, '\v^MM?\s*(.*)\s*$', '\1', '')
             let list_of_files = list_of_files . ' '.file
@@ -26,7 +25,7 @@ function! Svn_diff_windows()
         let i = i + 1
     endwhile
 
-    if list_of_files == ""
+    if list_of_files == ''
         return 
     endif
     

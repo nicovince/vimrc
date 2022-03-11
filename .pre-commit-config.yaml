@@ -1,0 +1,59 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v3.2.0
+  hooks:
+  - id: check-yaml
+    stages: [commit]
+  - id: check-added-large-files
+    stages: [commit]
+- repo: https://github.com/Vimjas/vint
+  rev: 471e70bfff02edab460bc238c2e6d8aa46197d60
+  hooks:
+  - id: vint
+    stages: [commit]
+    exclude: >
+      (?x)^(
+      autoload/Align.vim         |
+      autoload/AlignMaps.vim     |
+      colors/LightTan.vim        |
+      colors/cleanphp.vim        |
+      colors/darkbone.vim        |
+      colors/dawn.vim            |
+      colors/defaultLB.vim       |
+      colors/jhlight.vim         |
+      colors/moria.vim           |
+      colors/morning.vim         |
+      colors/motus.vim           |
+      colors/mydarkblue.vim      |
+      colors/navajo.vim          |
+      colors/oceandeep.vim       |
+      colors/peaksea.vim         |
+      colors/wombat.vim          |
+      ftplugin/python_match.vim  |
+      ftplugin/xml.vim           |
+      ftplugin/xs.vim            |
+      plugin/AlignMapsPlugin.vim |
+      plugin/AlignPlugin.vim     |
+      plugin/AnsiEsc_v2.vim      |
+      plugin/DoxygenToolkit.vim  |
+      plugin/cecutil.vim         |
+      plugin/code-snippet.vim    |
+      plugin/gtk2fontsize.vim    |
+      plugin/matchit.vim         |
+      plugin/matchit.vim         |
+      plugin/tabline.vim         |
+      syntax/dokuwiki.vim        |
+      syntax/octave.vim          |
+      syntax/pod.vim             |
+      syntax/sh.vim              |
+      syntax/tt2.vim             |
+      syntax/tt2html.vim         |
+      syntax/xs.vim              |
+      syntax/xterm.vim
+      )$
+- repo: https://github.com/jorisroovers/gitlint
+  rev: 4d96698f756df4f9f510de95099d987cd7182de2
+  hooks:
+  - id: gitlint

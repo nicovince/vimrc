@@ -1,8 +1,8 @@
 " Only do this when not done yet for this buffer
 if exists('b:did_ftplugin')
-	finish
+        finish
 endif
 let b:did_ftplugin = 1
-setlocal shiftwidth=2
-setlocal ai
-setlocal et
+
+setlocal noexpandtab
+setlocal shiftwidth=8

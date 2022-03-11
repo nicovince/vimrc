@@ -37,4 +37,4 @@ hi link iceSpirent          Define
 hi link iceMxg                      Special
 hi link iceMxa                      Special
  
-let b:current_syntax="icelog"
+let b:current_syntax='icelog'
