@@ -4,9 +4,9 @@
 
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded
-if version < 600
+if v:version < 600
   syntax clear
-elseif exists("b:current_syntax")
+elseif exists('b:current_syntax')
   finish
 endif
 
@@ -20,9 +20,9 @@ syn match   regPrint            "[a-zA-Z0-9]*" contained
 syn keyword regPrintStatement   P skipwhite nextgroup=regPrint skipwhite
 
 
-if version >= 508 || !exists("did_xxd_syntax_inits")
-  if version < 508
-    let did_xxd_syntax_inits = 1
+if v:version >= 508 || !exists('did_reg_syntax_inits')
+  if v:version < 508
+    let did_reg_syntax_inits = 1
     command -nargs=+ HiLink hi link <args>
   else
     command -nargs=+ HiLink hi def link <args>
@@ -38,4 +38,4 @@ if version >= 508 || !exists("did_xxd_syntax_inits")
  delcommand HiLink
 endif
 
-let b:current_syntax = "reg"
+let b:current_syntax = 'reg'

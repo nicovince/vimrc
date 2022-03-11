@@ -1,5 +1,5 @@
 " Only do this when not done yet for this buffer
-if exists("b:did_ftplugin_ly")
+if exists('b:did_ftplugin_ly')
 	finish
 endif
 let b:did_ftplugin_ly = 1

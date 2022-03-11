@@ -10,9 +10,13 @@
 "     for OpenVMS:  sys$login:.vimrc
 
 " When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
+if v:progname =~? 'evim'
   finish
 endif
+
+"-----------------------------------------------------------------------------
+" Vim General Config
+"-----------------------------------------------------------------------------
 
 " runtimepath is used to get vim configuration files and folders
 " default value is to $HOME/.vim which may not work when using
@@ -23,106 +27,32 @@ let $vimfolder = expand('<sfile>:p:h')
 " the ^= assign the variable if the rhs is not already in the lhs
 set runtimepath^=$vimfolder
 
-if isdirectory("/usr/share/lilypond/2.18.2/vim/")
+if isdirectory('/usr/share/lilypond/2.18.2/vim/')
   filetype off
   set runtimepath^=/usr/share/lilypond/2.18.2/vim/
   filetype on
   syntax on
 endif
 
-let $localvimrc = $vimfolder . "/local.vim"
+let $localvimrc = $vimfolder . '/local.vim'
 if filereadable($localvimrc)
   source $localvimrc
 endif
 
 
-" This was stolen from somewhere on the web to use F1-F12 keys in vim or maybe
-" it was gvim...
-" Anyway, I don't use them anymore...
-if $TERM == 'linux'
-  set <F1>=[[A
-  set <F2>=[[B
-  set <F3>=[[C
-  set <F4>=[[D
-  set <F5>=[[E
-  set <S-F1>=[25~
-  set <S-F2>=[26~
-  set <S-F3>=[28~
-  set <S-F4>=[29~
-  set <S-F5>=[31~
-  set <S-F6>=[32~
-  set <S-F7>=[33~
-  set <S-F8>=[34~
-  "set <S-CR>=OM
-
-  " `Gnome Terminal' fortunately sets $COLORTERM; it needs <BkSpc> and <Del>
-  " fixing, and it has a bug which causes spurious "c"s to appear, which can be
-  " fixed by unsetting t_RV:
-elseif $COLORTERM == 'gnome-terminal'
-  "execute 'set t_kb=' . nr2char(8)
-  " [Char 8 is <Ctrl>+H.]
-  fixdel
-  "set t_RV=
-
-  " Gnome-terminal:
-  set <S-F1>=OP
-  set <S-F2>=OQ
-  set <S-F3>=OR
-  set <S-F4>=OS
-  set <S-F5>=[15~
-  set <S-F6>=[17~
-  set <S-F7>=[18~
-  set <S-F8>=[19~
-  set <S-F9>=[20~
-  set <S-F10>=[21~
-  set <S-F11>=[23~
-  set <S-F12>=[24~
-
-  " `XTerm', `Konsole', and `KVT'.
-  " there's no easy way of distinguishing these terminals from other things
-  " that claim to be "xterm", but `RXVT' sets $COLORTERM to "rxvt" and these
-  " don't:
-elseif $COLORTERM == ''
-
-  " all also need <BkSpc> and <Del> fixing;
-  "execute 'set t_kb=' . nr2char(8)
-  "fixdel
-
-  " The above won't work if an `XTerm' or `KVT' is started from within a `Gnome
-  " Terminal' or an `RXVT': the $COLORTERM setting will propagate; it's always
-  " OK with `Konsole' which explicitly sets $COLORTERM to "".
-
-  " Konsole
-  set <S-F1>=O2P
-  set <S-F2>=O2Q
-  set <S-F3>=O2R
-  set <S-F4>=O2S
-  set <S-F5>=[15;2~
-  set <S-F6>=[17;2~
-  set <S-F7>=[18;2~
-  set <S-F8>=[19;2~
-  set <S-F9>=[20;2~
-endif
-
-
-"-----------------------------------------------------------------------------
-" Vim General Config
-"-----------------------------------------------------------------------------
-
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
-if has("win32")
+if has('win32')
   set fileformats=dos,unix
 else
   set shell=/bin/bash " Shell to use for external command (:!ls)
 endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Highlight trailing space, must be set before colorscheme command
-" Based on https://vim.fandom.com/wiki/Highlight_unwanted_spaces
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+"-------------------------------
+" User interface configuration
+"-------------------------------
+set number " display line number
+set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P "status bar
+set laststatus=2 " Always show status line
+
 highlight ExtraWhitespace ctermbg=red guibg=red
 let g:highlight_trailing_ws = 1
 
@@ -154,21 +84,10 @@ function DisableHighlightTrailingWS()
 endfunction
 
 call MatchTrailingWS()
-autocmd WinEnter * call MatchTrailingWS()
-autocmd InsertEnter * call MatchTrailingWSExceptCurrent()
-autocmd InsertLeave * call MatchTrailingWS()
-autocmd BufWinLeave * call clearmatches()
-
 " highlight trailing spaces on/off \wn / \wf
 nnoremap <Leader>wn :call EnableHighlightTrailingWS()<CR>
 nnoremap <Leader>wf :call DisableHighlightTrailingWS()<CR>
-"-------------------------------
-" User interface configuration
-"-------------------------------
-set number " display line number
-set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P "status bar
-set laststatus=2 " Always show status line
-colorscheme desert
+
 
 " MyTabLine defined in $VIM/plugin/
 set tabline=%!MyTabLine()
@@ -226,7 +145,7 @@ set splitright " when splitting the cursor is on the right window
 
 
 
-if has("vms")
+if has('vms')
   set nobackup    " do not keep a backup file, use versions instead
 else
   set backup    " keep a backup file
@@ -279,7 +198,7 @@ vnoremap <silent> # :<C-U>
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
+if &t_Co > 2 || has('gui_running')
   syntax on
   set hlsearch
 endif
@@ -309,7 +228,7 @@ cabbr hlep help
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Only do this part when compiled with support for autocommands.
-if has("autocmd")
+if has('autocmd')
 
   " Enable file type detection.
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
@@ -344,6 +263,15 @@ if has("autocmd")
   autocmd BufRead,BufNewFile iceberg.txt set filetype=icelog
   autocmd Filetype ada setlocal sw=3 expandtab
 
+  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  " Highlight trailing space, must be set before colorscheme command
+  " Based on https://vim.fandom.com/wiki/Highlight_unwanted_spaces
+  autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+  autocmd WinEnter * call MatchTrailingWS()
+  autocmd InsertEnter * call MatchTrailingWSExceptCurrent()
+  autocmd InsertLeave * call MatchTrailingWS()
+  autocmd BufWinLeave * call clearmatches()
+
   augroup END
 
 else
@@ -351,3 +279,5 @@ else
   set autoindent    " always set autoindenting on
 
 endif " has("autocmd")
+
+colorscheme desert
