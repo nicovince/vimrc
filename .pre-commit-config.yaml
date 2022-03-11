@@ -50,4 +50,7 @@ repos:
               syntax/xs.vim              |
               syntax/xterm.vim
         )$
-
+-   repo: https://github.com/jorisroovers/gitlint
+    rev: 4d96698f756df4f9f510de95099d987cd7182de2
+    hooks:
+    -   id: gitlint
