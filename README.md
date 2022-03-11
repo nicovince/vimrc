@@ -6,13 +6,13 @@ echo 'source $HOME/.vim/vimrc.vim' > $HOME/.vimrc
 
 Configure email address for repositories cloned on companies workstations:
 ```
-cd $HOME/vimrc
+cd $HOME/.vim
 git config --local user.email $(git log -1 5c4f4e3f61f6475ca1d05fc40a57fbfaed66fc5c --pretty=format:"%ae")
 ```
 
 Install git hooks (`pre-commit` must be installed):
 ```
-cd $HOME/vimrc
+cd $HOME/.vim
 pre-commit install --hook-type pre-commit --hook-type commit-msg
 ```
 
