@@ -34,6 +34,7 @@ repos:
       ftplugin/python_match.vim  |
       ftplugin/xml.vim           |
       ftplugin/xs.vim            |
+      indent/python.vim          |
       plugin/AlignMapsPlugin.vim |
       plugin/AlignPlugin.vim     |
       plugin/AnsiEsc_v2.vim      |
