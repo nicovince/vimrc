@@ -6,3 +6,9 @@ let b:did_ftplugin = 1
 
 setlocal noet
 
+if (IsZephyr())
+        setlocal shiftwidth=2
+        setlocal tabstop=2
+        setlocal expandtab
+endif
+
