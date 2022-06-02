@@ -394,7 +394,7 @@ function! LaunchGDB(gdb, elf_file)
 endfunction
 command! -complete=file -nargs=+ LaunchGDB call LaunchGDB(<f-args>)
 
-let g:zephyr_gdb = '/opt/zephyr-sdk-0.13.1/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb'
+let g:zephyr_gdb = '/opt/zephyr-sdk-0.13.2/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb'
 function! LaunchGDBNoStdout(gdb, elf_file)
   call LaunchGDB(a:gdb, a:elf_file)
   let l:gdb_connection_string = 'target remote localhost:3333'
@@ -412,4 +412,6 @@ function! LaunchGDBTTY(gdb, elf_file, tty)
   exec 'term screen ' . a:tty . ' 115200 8N1'
 endfunction
 command! -complete=file -nargs=+ LaunchGDBTTY call LaunchGDBTTY(<f-args>)
+command! -complete=file -nargs=+ ZephGDBTTY call LaunchGDBTTY(g:zephyr_gdb, <f-args>)
 command! -complete=file -nargs=+ ZephGDBACM0 call LaunchGDBTTY(g:zephyr_gdb, <f-args>, "/dev/ttyACM0")
+command! -complete=file -nargs=+ ZephGDBACM1 call LaunchGDBTTY(g:zephyr_gdb, <f-args>, "/dev/ttyACM1")
