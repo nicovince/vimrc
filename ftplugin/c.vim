@@ -21,6 +21,10 @@ elseif (IsSiema())
         setlocal tabstop=4
 endif
 
+if (IsZephyr())
+        setlocal textwidth=100
+endif
+
 function! CHdrGuard()
         let l:filename = expand('%:t')
         let l:guard = '__' . substitute(toupper(l:filename), '\.', '_', 'g') . '__'

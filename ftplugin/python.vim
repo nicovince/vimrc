@@ -10,4 +10,6 @@ if (IsSequansPI())
         setlocal shiftwidth=4
         setlocal tabstop=4
         setlocal noet
+elseif (IsZephyr())
+        setlocal textwidth=100
 endif
