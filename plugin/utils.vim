@@ -276,7 +276,11 @@ function! IsLinux()
   if l:path =~# 'linux'
     return 1
   else
-    return 0
+     if l:path =~# 'lkm'
+       return 1
+     else
+       return 0
+     endif
   endif
 endfunction
 " return 1 when editing for linux drivers out of tree
