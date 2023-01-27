@@ -183,6 +183,10 @@ map !s :stjump <C-R><C-W><CR>
 " close preview window
 map !c :pclose <CR>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" clang-format mappings
+map <C-K> :py3file /usr/share/vim/addons/syntax/clang-format.py<cr>
+imap <C-K> <c-o>:py3file /usr/share/vim/addons/syntax/clang-format.py<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search for selected text, forwards or backwards.
