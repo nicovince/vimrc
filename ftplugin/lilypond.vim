@@ -9,7 +9,7 @@ setlocal iskeyword=@,48-57,_,192-255,#
 function! TwoVoices()
         exec 'normal o<<'
         exec 'normal o{}'
-        exec 'normal o\\\\'
+        exec 'normal o\\'
         exec 'normal o{}'
         exec 'normal o>> |'
         exec 'normal kkk'
