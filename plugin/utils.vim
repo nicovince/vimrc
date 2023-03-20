@@ -413,7 +413,7 @@ command! -complete=file -nargs=1 ZephyrGDB call LaunchGDBNoStdout(g:zephyr_gdb, 
 
 function! LaunchGDBTTY(gdb, elf_file, tty)
   call LaunchGDBNoStdout(a:gdb, a:elf_file)
-  exec 'term screen ' . a:tty . ' 115200 8N1'
+  exec 'term picocom -b 115200 ' . a:tty
 endfunction
 command! -complete=file -nargs=+ LaunchGDBTTY call LaunchGDBTTY(<f-args>)
 command! -complete=file -nargs=+ ZephGDBTTY call LaunchGDBTTY(g:zephyr_gdb, <f-args>)
