@@ -48,6 +48,10 @@ if isdirectory('/usr/share/lilypond/2.22.1/vim/')
   syntax on
 endif
 
+if isdirectory('/usr/share/doc/fzf/examples')
+  set runtimepath^=/usr/share/doc/fzf/examples
+endif
+
 let $localvimrc = $vimfolder . '/local.vim'
 if filereadable($localvimrc)
   source $localvimrc
