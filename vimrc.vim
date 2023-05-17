@@ -41,6 +41,17 @@ if isdirectory('/usr/share/lilypond/2.20.0/vim/')
   syntax on
 endif
 
+if isdirectory('/usr/share/lilypond/2.22.1/vim/')
+  filetype off
+  set runtimepath^=/usr/share/lilypond/2.22.1/vim/
+  filetype on
+  syntax on
+endif
+
+if isdirectory('/usr/share/doc/fzf/examples')
+  set runtimepath^=/usr/share/doc/fzf/examples
+endif
+
 let $localvimrc = $vimfolder . '/local.vim'
 if filereadable($localvimrc)
   source $localvimrc
@@ -264,6 +275,7 @@ if has('autocmd')
 
   " filetype
   autocmd BufNEwFile,BufRead *.overlay setlocal filetype=dts
+  autocmd BufNEwFile,BufRead *.lypp setlocal filetype=lilypond
   autocmd BufNEwFile,BufRead *.vh setlocal filetype=verilog
   autocmd BufNEwFile,BufRead SConstruct setlocal filetype=python
   autocmd BufNEwFile,BufRead *.cw setlocal filetype=c
