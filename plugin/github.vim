@@ -7,12 +7,12 @@ let loaded_github = 1
 " Github related functions
 
 function! GH_Env()
-        exec 'normal A | tee $GITHUB_ENV'
+        exec 'normal A | tee -a $GITHUB_ENV'
 endfunction
 command! -bang -nargs=0 GHenv call GH_Env()
 
 function! GH_Out()
-        exec 'normal A | tee $GITHUB_OUTPUT'
+        exec 'normal A | tee -a $GITHUB_OUTPUT'
 endfunction
 command! -bang -nargs=0 GHout call GH_Out()
 
