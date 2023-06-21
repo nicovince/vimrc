@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -e
+SCRIPT="$(basename "$0")"
 VIM_FOLDER="$(dirname "$(realpath "$0" --relative-to "$(git rev-parse --show-toplevel)")")"
 PACKAGES_FOLDER="${VIM_FOLDER}/pack"
 
@@ -8,8 +9,10 @@ function help()
     cat <<EOF
 Manage vim plugins as submodules
 Usage:
-  plugins.sh add <url>
-
+  ${SCRIPT} add <url>
+  ${SCRIPT} rm <path>
+  ${SCRIPT} list
+  ${SCRIPT} update
 EOF
 }
 
@@ -35,6 +38,17 @@ function plugin_rm()
     git rm "${plugin_path}"
 }
 
+function plugin_list()
+{
+    git submodule status | awk '{print $2}' | sed -r 's#(pack/([^/]*).*)#\2\t\1#' | column -ts $'\t'
+}
+
+function plugin_update()
+{
+    git submodule foreach 'git pull'
+    find pack -name "doc" -exec vim -u NONE -c "helptags {}" -c q \;
+}
+
 while [ $# -gt 0 ]; do
     case "$1" in
         -h|--help)
@@ -51,6 +65,14 @@ while [ $# -gt 0 ]; do
             ACTION="$1"
             PLUGIN_PATH="$2"
             shift
+            ;;
+        list)
+            plugin_list
+            exit 0
+            ;;
+        update)
+            plugin_update
+            exit 0
             ;;
         *)
             echo "unknown option $1"
