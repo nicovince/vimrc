@@ -21,7 +21,10 @@ pre-commit install --hook-type pre-commit --hook-type commit-msg
 find pack -name "doc" -exec vim -u NONE -c "helptags {}" -c q \;
 ```
 
-# Installing plugins as packages
-Create `pack/<plugin>/start` folder, and paste/download/clone the plugin to that directory. Vim's internal package manager will automatically add that folder to the runtimepath.
+# Installing plugins
+```
+./vplug.sh <repository url>
+```
+This command will download the repository url as a git submodule and generate documentation for that plugin. Plugins are installed under `pack/<plugin>/start/<plugin>`
 
 ```help package```
