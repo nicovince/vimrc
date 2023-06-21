@@ -1,21 +1,24 @@
-[submodule "bundle/Dockerfile.vim"]
-	path = pack/plugins/start/dockerfile
-	url = https://github.com/ekalinin/Dockerfile.vim.git
-[submodule "bundle/vim-surround"]
-	path = pack/plugins/start/surround
-	url = https://github.com/tpope/vim-surround.git
-[submodule "pack/fugitive/start/vim-fugitive"]
-	path = pack/plugins/start/fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-[submodule "pack/plugins/start/lightline.vim"]
-	path = pack/plugins/start/lightline
-	url = https://github.com/itchyny/lightline.vim
-[submodule "pack/plugins/start/vim-bitbake"]
-	path = pack/plugins/start/vim-bitbake
-	url = https://github.com/kergoth/vim-bitbake
-[submodule "pack/plugins/start/vim-gfm-syntax"]
-	path = pack/plugins/start/vim-gfm-syntax
-	url = https://github.com/rhysd/vim-gfm-syntax
-[submodule "pack/plugins/start/vim-shellcheck"]
-	path = pack/plugins/start/vim-shellcheck
+[submodule "pack/vim-dispatch/start/vim-dispatch"]
+	path = pack/vim-dispatch/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch
+[submodule "pack/vim-shellcheck/start/vim-shellcheck"]
+	path = pack/vim-shellcheck/start/vim-shellcheck
 	url = https://github.com/itspriddle/vim-shellcheck
+[submodule "pack/vim-gfm-syntax/start/vim-gfm-syntax"]
+	path = pack/vim-gfm-syntax/start/vim-gfm-syntax
+	url = https://github.com/rhysd/vim-gfm-syntax
+[submodule "pack/Dockerfile.vim/start/Dockerfile.vim"]
+	path = pack/Dockerfile.vim/start/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule "pack/vim-fugitive/start/vim-fugitive"]
+	path = pack/vim-fugitive/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "pack/lightline.vim/start/lightline.vim"]
+	path = pack/lightline.vim/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
+[submodule "pack/vim-surround/start/vim-surround"]
+	path = pack/vim-surround/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "pack/vim-bitbake/start/vim-bitbake"]
+	path = pack/vim-bitbake/start/vim-bitbake
+	url = https://github.com/kergoth/vim-bitbake
