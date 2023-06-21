@@ -60,6 +60,7 @@ function plugin_transit()
 {
     git submodule update --init --recursive
     rm -Rf pack/plugins
+    find pack -name "doc" -exec vim -u NONE -c "helptags {}" -c q \;
 }
 
 while [ $# -gt 0 ]; do
