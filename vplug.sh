@@ -16,6 +16,7 @@ Usage:
 EOF
 }
 
+# Add a plugin as a submodule
 function plugin_add()
 {
     local url
@@ -30,6 +31,7 @@ function plugin_add()
     vim -u NONE -c "helptags ${plugin_folder}/doc" -c q
 }
 
+# rm plugin installed as submodule
 function plugin_rm()
 {
     local plugin_path
@@ -38,15 +40,26 @@ function plugin_rm()
     git rm "${plugin_path}"
 }
 
+# List installed plugins
 function plugin_list()
 {
     git submodule status | awk '{print $2}' | sed -r 's#(pack/([^/]*).*)#\2\t\1#' | column -ts $'\t'
 }
 
+# Update submodules
 function plugin_update()
 {
     git submodule foreach 'git pull'
     find pack -name "doc" -exec vim -u NONE -c "helptags {}" -c q \;
+}
+
+# Transition from plugins installed in pack/plugins/start/<plugin> to
+# pack/<plugin>/start/<plugin>
+# this should be called only once after updating .vim repository
+function plugin_transit()
+{
+    git submodule update --init --recursive
+    rm -Rf pack/plugins
 }
 
 while [ $# -gt 0 ]; do
@@ -72,6 +85,10 @@ while [ $# -gt 0 ]; do
             ;;
         update)
             plugin_update
+            exit 0
+            ;;
+        transit)
+            plugin_transit
             exit 0
             ;;
         *)
