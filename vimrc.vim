@@ -184,13 +184,16 @@ map !cd :lcd %:p:h<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctags mapping
+" Use FZF to select possible tags
+command! -bang -complete=tag -nargs=* ETags call fzf#vim#tags(<q-args>, fzf#vim#with_preview({ "placeholder": "--tag {2}:{-1}:{3..}", "options": "--exact --select-1" }), <bang>0)
 " jump to tag under cursor
-map !z :tjump <C-R><C-W> <CR>zt
-map !t :tab split <CR> :tjump <C-R><C-W> <CR>zt
+map !z :ETags <C-R><C-W> <CR>
+" tab window
+map !t :tab split <CR> :ETags <C-R><C-W> <CR>
+" split window
+map !s :split <CR> :ETags <C-R><C-W> <CR>
 " open a preview window and jump to to tag under cursor
 map !p :ptjump <C-R><C-W><CR>
-" split preview window
-map !s :stjump <C-R><C-W><CR>
 " close preview window
 map !c :pclose <CR>
 
