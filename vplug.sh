@@ -9,10 +9,11 @@ function help()
     cat <<EOF
 Manage vim plugins as submodules
 Usage:
-  ${SCRIPT} add <url>
-  ${SCRIPT} rm <path>
-  ${SCRIPT} list
-  ${SCRIPT} update
+  ${SCRIPT} add <url>: Add a plugin
+  ${SCRIPT} rm <path>: Remove a plugin
+  ${SCRIPT} list: List installed plugins
+  ${SCRIPT} update: Update all plugins by pulling each submodule
+  ${SCRIPT} pull: Pull vimrc repository with submodules and regenerate documentation
 EOF
 }
 
@@ -46,10 +47,17 @@ function plugin_list()
     git submodule status | awk '{print $2}' | sed -r 's#(pack/([^/]*).*)#\2\t\1#' | column -ts $'\t'
 }
 
-# Update submodules
+# Update submodules to their latest upstream version
 function plugin_update()
 {
     git submodule foreach 'git pull'
+    find pack -name "doc" -exec vim -u NONE -c "helptags {}" -c q \;
+}
+
+# Pull vimrc repository with submodule and regenerate documentation
+function plugin_pull()
+{
+    git pull --recurse-submodules=yes
     find pack -name "doc" -exec vim -u NONE -c "helptags {}" -c q \;
 }
 
@@ -86,6 +94,10 @@ while [ $# -gt 0 ]; do
             ;;
         update)
             plugin_update
+            exit 0
+            ;;
+        pull)
+            plugin_pull
             exit 0
             ;;
         transit)
