@@ -22,3 +22,6 @@
 [submodule "pack/vim-bitbake/start/vim-bitbake"]
 	path = pack/vim-bitbake/start/vim-bitbake
 	url = https://github.com/kergoth/vim-bitbake
+[submodule "pack/fzf.vim/start/fzf.vim"]
+	path = pack/fzf.vim/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
