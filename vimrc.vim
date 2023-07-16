@@ -70,42 +70,7 @@ endif
 set number " display line number
 set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P "status bar
 set laststatus=2 " Always show status line
-
-highlight ExtraWhitespace ctermbg=red guibg=red
-let g:highlight_trailing_ws = 1
-
-" Match all whitespaces at end of line
-function MatchTrailingWS()
-    if g:highlight_trailing_ws == 1
-        match ExtraWhitespace /\s\+$/
-    endif
-endfunction
-
-" Match whitespaces at end of line except for current line
-function MatchTrailingWSExceptCurrent()
-    if g:highlight_trailing_ws == 1
-        match ExtraWhitespace /\s\+\%#\@<!$/
-    endif
-endfunction
-
-" Enable highlighting
-function EnableHighlightTrailingWS()
-    let g:highlight_trailing_ws = 1
-    highlight ExtraWhitespace ctermbg=red guibg=red
-    call MatchTrailingWS()
-endfunction
-
-" Disable highlighting
-function DisableHighlightTrailingWS()
-    let g:highlight_trailing_ws = 0
-    highlight clear ExtraWhitespace
-endfunction
-
-call MatchTrailingWS()
-" highlight trailing spaces on/off \wn / \wf
-nnoremap <Leader>wn :call EnableHighlightTrailingWS()<CR>
-nnoremap <Leader>wf :call DisableHighlightTrailingWS()<CR>
-
+set background=dark " My terminal background is dark.
 
 " MyTabLine defined in $VIM/plugin/
 set tabline=%!MyTabLine()
@@ -196,6 +161,45 @@ map !s :split <CR> :ETags <C-R><C-W> <CR>
 map !p :ptjump <C-R><C-W><CR>
 " close preview window
 map !c :pclose <CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Highligh trailing whitespaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+let g:highlight_trailing_ws = 1
+
+" Match all whitespaces at end of line
+function MatchTrailingWS()
+    if g:highlight_trailing_ws == 1
+        match ExtraWhitespace /\s\+$/
+    endif
+endfunction
+
+" Match whitespaces at end of line except for current line
+function MatchTrailingWSExceptCurrent()
+    if g:highlight_trailing_ws == 1
+        match ExtraWhitespace /\s\+\%#\@<!$/
+    endif
+endfunction
+
+" Enable highlighting
+function EnableHighlightTrailingWS()
+    let g:highlight_trailing_ws = 1
+    highlight ExtraWhitespace ctermbg=red guibg=red
+    call MatchTrailingWS()
+endfunction
+
+" Disable highlighting
+function DisableHighlightTrailingWS()
+    let g:highlight_trailing_ws = 0
+    highlight clear ExtraWhitespace
+endfunction
+
+call MatchTrailingWS()
+" highlight trailing spaces on/off \wn / \wf
+nnoremap <Leader>wn :call EnableHighlightTrailingWS()<CR>
+nnoremap <Leader>wf :call DisableHighlightTrailingWS()<CR>
+
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " clang-format mappings
