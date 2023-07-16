@@ -25,3 +25,6 @@
 [submodule "pack/fzf.vim/start/fzf.vim"]
 	path = pack/fzf.vim/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
+[submodule "pack/vim-easy-align/start/vim-easy-align"]
+	path = pack/vim-easy-align/start/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align
