@@ -28,3 +28,6 @@
 [submodule "pack/vim-easy-align/start/vim-easy-align"]
 	path = pack/vim-easy-align/start/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align
+[submodule "pack/vim-matchit/start/vim-matchit"]
+	path = pack/vim-matchit/start/vim-matchit
+	url = https://github.com/adelarsq/vim-matchit
