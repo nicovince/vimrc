@@ -72,10 +72,6 @@ set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P "status 
 set laststatus=2 " Always show status line
 set background=dark " My terminal background is dark.
 
-" MyTabLine defined in $VIM/plugin/
-set tabline=%!MyTabLine()
-set guitablabel=%{GuiTabLabel()}
-
 " Lightline configuration, overrides statusline and tabline
 let g:lightline = {
   \ 'component_function': {
