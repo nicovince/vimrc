@@ -35,14 +35,10 @@ repos:
       ftplugin/xml.vim           |
       ftplugin/xs.vim            |
       indent/python.vim          |
-      plugin/AlignMapsPlugin.vim |
-      plugin/AlignPlugin.vim     |
       plugin/AnsiEsc_v2.vim      |
       plugin/DoxygenToolkit.vim  |
       plugin/cecutil.vim         |
       plugin/gtk2fontsize.vim    |
-      plugin/matchit.vim         |
-      plugin/matchit.vim         |
       plugin/tabline.vim         |
       syntax/dokuwiki.vim        |
       syntax/octave.vim          |
