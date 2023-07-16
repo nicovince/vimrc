@@ -37,3 +37,6 @@
 [submodule "pack/vim-endwise/start/vim-endwise"]
 	path = pack/vim-endwise/start/vim-endwise
 	url = https://github.com/tpope/vim-endwise
+[submodule "pack/vim-unimpaired/start/vim-unimpaired"]
+	path = pack/vim-unimpaired/start/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired
