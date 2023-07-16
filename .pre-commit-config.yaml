@@ -40,7 +40,6 @@ repos:
       plugin/AnsiEsc_v2.vim      |
       plugin/DoxygenToolkit.vim  |
       plugin/cecutil.vim         |
-      plugin/code-snippet.vim    |
       plugin/gtk2fontsize.vim    |
       plugin/matchit.vim         |
       plugin/matchit.vim         |
