@@ -31,3 +31,6 @@
 [submodule "pack/vim-matchit/start/vim-matchit"]
 	path = pack/vim-matchit/start/vim-matchit
 	url = https://github.com/adelarsq/vim-matchit
+[submodule "pack/vim-repeat/start/vim-repeat"]
+	path = pack/vim-repeat/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat
