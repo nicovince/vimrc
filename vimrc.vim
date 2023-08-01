@@ -70,46 +70,7 @@ endif
 set number " display line number
 set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P "status bar
 set laststatus=2 " Always show status line
-
-highlight ExtraWhitespace ctermbg=red guibg=red
-let g:highlight_trailing_ws = 1
-
-" Match all whitespaces at end of line
-function MatchTrailingWS()
-    if g:highlight_trailing_ws == 1
-        match ExtraWhitespace /\s\+$/
-    endif
-endfunction
-
-" Match whitespaces at end of line except for current line
-function MatchTrailingWSExceptCurrent()
-    if g:highlight_trailing_ws == 1
-        match ExtraWhitespace /\s\+\%#\@<!$/
-    endif
-endfunction
-
-" Enable highlighting
-function EnableHighlightTrailingWS()
-    let g:highlight_trailing_ws = 1
-    highlight ExtraWhitespace ctermbg=red guibg=red
-    call MatchTrailingWS()
-endfunction
-
-" Disable highlighting
-function DisableHighlightTrailingWS()
-    let g:highlight_trailing_ws = 0
-    highlight clear ExtraWhitespace
-endfunction
-
-call MatchTrailingWS()
-" highlight trailing spaces on/off \wn / \wf
-nnoremap <Leader>wn :call EnableHighlightTrailingWS()<CR>
-nnoremap <Leader>wf :call DisableHighlightTrailingWS()<CR>
-
-
-" MyTabLine defined in $VIM/plugin/
-set tabline=%!MyTabLine()
-set guitablabel=%{GuiTabLabel()}
+set background=dark " My terminal background is dark.
 
 " Lightline configuration, overrides statusline and tabline
 let g:lightline = {
@@ -184,15 +145,57 @@ map !cd :lcd %:p:h<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctags mapping
+" Use FZF to select possible tags
+command! -bang -complete=tag -nargs=* ETags call fzf#vim#tags(<q-args>, fzf#vim#with_preview({ "placeholder": "--tag {2}:{-1}:{3..}", "options": "--exact --select-1" }), <bang>0)
 " jump to tag under cursor
-map !z :tjump <C-R><C-W> <CR>zt
-map !t :tab split <CR> :tjump <C-R><C-W> <CR>zt
+map !z :ETags <C-R><C-W> <CR>
+" tab window
+map !t :tab split <CR> :ETags <C-R><C-W> <CR>
+" split window
+map !s :split <CR> :ETags <C-R><C-W> <CR>
 " open a preview window and jump to to tag under cursor
 map !p :ptjump <C-R><C-W><CR>
-" split preview window
-map !s :stjump <C-R><C-W><CR>
 " close preview window
 map !c :pclose <CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Highligh trailing whitespaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+let g:highlight_trailing_ws = 1
+
+" Match all whitespaces at end of line
+function MatchTrailingWS()
+    if g:highlight_trailing_ws == 1
+        match ExtraWhitespace /\s\+$/
+    endif
+endfunction
+
+" Match whitespaces at end of line except for current line
+function MatchTrailingWSExceptCurrent()
+    if g:highlight_trailing_ws == 1
+        match ExtraWhitespace /\s\+\%#\@<!$/
+    endif
+endfunction
+
+" Enable highlighting
+function EnableHighlightTrailingWS()
+    let g:highlight_trailing_ws = 1
+    highlight ExtraWhitespace ctermbg=red guibg=red
+    call MatchTrailingWS()
+endfunction
+
+" Disable highlighting
+function DisableHighlightTrailingWS()
+    let g:highlight_trailing_ws = 0
+    highlight clear ExtraWhitespace
+endfunction
+
+call MatchTrailingWS()
+" highlight trailing spaces on/off \wn / \wf
+nnoremap <Leader>wn :call EnableHighlightTrailingWS()<CR>
+nnoremap <Leader>wf :call DisableHighlightTrailingWS()<CR>
+
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " clang-format mappings

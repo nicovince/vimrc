@@ -6,3 +6,4 @@ let b:did_ftplugin = 1
 setlocal shiftwidth=4
 setlocal et
 setlocal tw=0
+setlocal commentstring=#%s

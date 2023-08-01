@@ -15,35 +15,15 @@ repos:
     stages: [commit]
     exclude: >
       (?x)^(
-      autoload/Align.vim         |
-      autoload/AlignMaps.vim     |
-      colors/LightTan.vim        |
-      colors/cleanphp.vim        |
-      colors/darkbone.vim        |
-      colors/dawn.vim            |
       colors/defaultLB.vim       |
-      colors/jhlight.vim         |
-      colors/moria.vim           |
-      colors/morning.vim         |
-      colors/motus.vim           |
-      colors/mydarkblue.vim      |
-      colors/navajo.vim          |
-      colors/oceandeep.vim       |
-      colors/peaksea.vim         |
-      colors/wombat.vim          |
       ftplugin/python_match.vim  |
       ftplugin/xml.vim           |
       ftplugin/xs.vim            |
       indent/python.vim          |
-      plugin/AlignMapsPlugin.vim |
-      plugin/AlignPlugin.vim     |
       plugin/AnsiEsc_v2.vim      |
       plugin/DoxygenToolkit.vim  |
       plugin/cecutil.vim         |
-      plugin/code-snippet.vim    |
       plugin/gtk2fontsize.vim    |
-      plugin/matchit.vim         |
-      plugin/matchit.vim         |
       plugin/tabline.vim         |
       syntax/dokuwiki.vim        |
       syntax/octave.vim          |

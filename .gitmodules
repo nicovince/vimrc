@@ -22,3 +22,24 @@
 [submodule "pack/vim-bitbake/start/vim-bitbake"]
 	path = pack/vim-bitbake/start/vim-bitbake
 	url = https://github.com/kergoth/vim-bitbake
+[submodule "pack/fzf.vim/start/fzf.vim"]
+	path = pack/fzf.vim/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "pack/vim-easy-align/start/vim-easy-align"]
+	path = pack/vim-easy-align/start/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align
+[submodule "pack/vim-matchit/start/vim-matchit"]
+	path = pack/vim-matchit/start/vim-matchit
+	url = https://github.com/adelarsq/vim-matchit
+[submodule "pack/vim-repeat/start/vim-repeat"]
+	path = pack/vim-repeat/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat
+[submodule "pack/vim-endwise/start/vim-endwise"]
+	path = pack/vim-endwise/start/vim-endwise
+	url = https://github.com/tpope/vim-endwise
+[submodule "pack/vim-unimpaired/start/vim-unimpaired"]
+	path = pack/vim-unimpaired/start/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired
+[submodule "pack/vim-commentary/start/vim-commentary"]
+	path = pack/vim-commentary/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
