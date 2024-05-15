@@ -14,6 +14,7 @@ if v:progname =~? 'evim'
   finish
 endif
 
+
 "-----------------------------------------------------------------------------
 " Vim General Config
 "-----------------------------------------------------------------------------
@@ -57,6 +58,11 @@ if filereadable($localvimrc)
   source $localvimrc
 endif
 
+" Source utils.vim when using neovim
+if has('nvim')
+  let $utilsvimrc =  $vimfolder . '/plugin/utils.vim'
+  source $utilsvimrc
+endif
 
 if has('win32')
   set fileformats=dos,unix
@@ -304,4 +310,8 @@ else
 
 endif " has("autocmd")
 
-colorscheme desert
+if has('nvim')
+  colorscheme default
+else
+  colorscheme desert
+endif
