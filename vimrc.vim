@@ -310,7 +310,9 @@ else
 
 endif " has("autocmd")
 
-if has('nvim')
+if has('nvim-0.10')
+  colorscheme vim
+elseif has('nvim')
   colorscheme default
 else
   colorscheme desert

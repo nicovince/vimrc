@@ -1,8 +1,8 @@
 " Only do this when not done yet for this buffer
-if exists('b:did_ftplugin')
+if exists('b:did_ft_git')
 	finish
 endif
-let b:did_ftplugin = 1
+let b:did_ft_git = 1
 " vim: set et sw=2:
 
 function! NoComment()
